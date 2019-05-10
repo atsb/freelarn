@@ -4,7 +4,7 @@ CC_FLAGS = -std=c++1z -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werr
 EXEC = freelarn
 SOURCES = $(wildcard ../src/*.cpp) $(wildcard ../src/**/*.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
-LIBS = -lncurses -ljsoncpp
+LIBS = -lncurses
 
 $(EXEC): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(EXEC) $(LIBS)
