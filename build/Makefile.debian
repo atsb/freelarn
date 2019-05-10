@@ -1,0 +1,17 @@
+CC = g++
+CC_FLAGS = -std=c++1z -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werror -pedantic-errors -Wpointer-arith -Woverloaded-virtual -Wuninitialized -Wshadow -Winit-self -Wmissing-declarations -fomit-frame-pointer -DNIX_LOCAL -DDEBIAN
+
+EXEC = freelarn
+SOURCES = $(wildcard ../src/*.cpp) $(wildcard ../src/**/*.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
+LIBS = -lncurses -ljsoncpp
+
+$(EXEC): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXEC) $(LIBS)
+	mv $(EXEC) ../bin/
+ 
+%.o: %.cpp
+	$(CC) -c $(CC_FLAGS) $< -o $@
+ 
+clean:
+	rm -f $(EXEC) $(OBJECTS)

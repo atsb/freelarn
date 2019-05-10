@@ -1,0 +1,15 @@
+CC = g++
+CC_FLAGS = -g -std=c++1z -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werror -pedantic-errors -Wpointer-arith -Woverloaded-virtual -Wuninitialized -Wshadow -Winit-self -Wmissing-declarations -fomit-frame-pointer -DWINDOWS
+
+EXEC = freelarn.exe
+SOURCES = $(wildcard ../src/*.cpp) $(wildcard ../src/**/*.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
+LIBS = -lpdcurses
+
+$(EXEC): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXEC) $(LIBS)
+
+%.o: %.cpp
+	$(CC) -c $(CC_FLAGS) $< -o $@
+
+clean:

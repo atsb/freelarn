@@ -1,0 +1,622 @@
+May 2019
+
+1. Removed showing spells when reading a Prayer Book and replaced with
+	suitable alternative text and benefits.
+2. Fixed death text and integer for starving to death.
+3. Modified death texts to make sense after 'killed by' sentence.
+4. Removed more redundant C-style ints.
+5. Removed aur Makefile.
+6. Removed JsonCPP and replaced with an MIT ConfigReader
+	Author credited and License is added in 'docs'.
+7. Removed 'json' folder and added config header in 'config'.
+8. Renamed fl_config.json to fl_config.cfg.
+9. Fixed a bug for the maze generation where the player would 
+	always spawn next to a mob room.
+10. Fixed a bug where the openin of the door would overlap
+	the 'LVL' field on the text drawing area.
+
+~Gibbon
+
+=============================================================================
+
+August 2017
+
+1. Created new folders (core and display) to hold classes that are either
+	for the display part of the game (display) or essential to gameplay (core).
+2. Cleaned up and rewrote many backend functions/functionality as inline functions.
+3. Split up huge files and rewrote the functions into individual files.
+4. Mass-renamed a whole bunch of stupidly named functions and variables
+	into useful names (self documenting).
+5. Removed the volcano and implemented a 'Temple of Larn'.
+	Much more fun..  who goes exploring underneath a volcano?
+6. Removed all goto statements except cantprotect.
+7. Modified much of the io code and replaced with public domain versions or
+	modified them myself through trial and error.
+8. Display code modified and cleaned.
+9. Bug fixes for cases falling through.
+10. Spells and Monster functions are modified and changed.
+11. Files now have nice camel-case names for easy reading.
+12. Data.h is now gone completely.
+13. Rearranged header files to prevent circular dependencies.
+14. Created some new classes and functions to be self-documenting.
+15. Removed redundant functions and replaced with standard code.
+16. Removed many of the redundant conversions to int, char etc from C.
+	Either replaced with C++ reinterpret_cast, static_cast etc.. or
+	removed them entirely as the new inline data is correct and 
+	does not need converting.
+17. Removed unused variables and structs.
+18. Fixed a bug where saving would not work on Unix-like platforms.
+19. Fixed a bug where the bank would not refresh the terminal correctly.
+20. Fixed a bug where the LRS would not refresh after entering correctly.
+21. Fixed a bug where the percentage sign was calculating in the Store
+	instead of showing it in plain text.
+22. Fixed a bug where quitting the game on Unix-like platforms
+	would not reset the terminal correctly and created a corrupted
+	window.
+23. Fixed a bug where the list of known spells, potions and scrolls
+	would not display correctly and appeared unreadable and
+	corrupted.
+24. Removed the school / college and added a skeleton in it's place.
+
+~Gibbon
+
+=============================================================================
+
+July 2017
+
+1. Using utf8.h to utf8-ify the strings like strcmp etc..
+2. Removed HARDLEVEL and everything about difficulty
+3. More Apache 2.0 files and cleaning of the codebase
+4. Made some changes for file storage (now in /var/tmp)
+	for unix-like systems
+5. Changed name to FreeLarn in preparation for the Apache 2.0 code
+	(it's not done yet though!).
+
+~Gibbon
+
+=============================================================================
+
+June 2017
+
+1. Rewrote the fl_maze_from_char function to be standard C/C++.
+2. Rewrote the cave level generation (some bugs remain).
+3. Rewrote the math which generates the mazes.
+4. Cleaned up some functions and squashed some bugs.
+5. Cleaned up UI (finalized).
+6. Templated functions.
+7. Inlined functions for #define's.
+8. Inlined variable for FL_WIZARD_MODE_ENABLED (more to come).
+9. Added more mazes to the file.
+10. Removed color.
+11. Removed all #define macros and replaced them with inline functions,
+	variables, templates and declared the rest correctly.
+12. Renamed some variables like scprob to scroll_probability.
+13. Removed larnfunc.h and created templates/FLTMath.hpp.
+14. Now compiles cleanly with GCC 7.1 with very strict rules.
+15. Cleaned up inventory code and made it fullscreen.
+16. Increased mobuls to 699.
+17. Created a log of messages (data/messages.log) for review if
+	players miss any of the messages scrolling while playing.
+18. Removed pointless casting.
+19. Large amount of bug fixing.
+20. Apache 2.0 applies to more files.
+
+~Gibbon
+
+=============================================================================
+
+May 2017
+
+1. Added some extra items and functionality (Prayer Books, usage at Altars..)
+2. Changed License to Apache 2.0 for files which I have fully rewritten.
+3. Changed LICENSE.txt to reflect this change.
+4. De-fished tgoto and re-implemented using public domain documentation.
+5. Re-implemented the save/restore logic so it is more reliable and cleaner.
+6. Created some classes (for termcap stuff).
+7. Re-licensed some more files (save.cpp and tgoto.cpp).
+
+~Gibbon
+
+=============================================================================
+
+March 2017
+
+1. Changed the door symbol to 'D' and the open door to '.'
+	Looks better I think.
+2. C++'ified some functions and buffer output.
+3. Fixed all warnings on multiple architectures.
+4. Whole bunch of bug fixes and optimizations (check the github repo).
+
+~Gibbon
+
+=============================================================================
+
+November - December 2016
+
+1. Warning-less C++ compilation on Windows, macOS and BSD (GCC 5.1+, Clang 3.8+)
+	only are supported.
+2. Fixed some bugs with memory allocation (using operator instead of malloc helps).
+3. Saving and Loading is temporarily stripped out.  Rewriting these functions
+	into valid C++ is needed.
+4. Final warnings for macOS and BSD are fixed.
+5. Unused AL[] and DL[] in io.cpp are removed.
+6. Filenames for files (scorefile etc) have been enlarged so it doesn't chop off
+	the .dat, .txt etc..
+
+~Gibbon
+
+=============================================================================
+
+October - November 2016
+
+1. Compiles now with C++ (conversion to real C++ is ongoing)
+2. Removed mazes being saved into memory, now each time the player
+	goes up or down a level, a fresh maze is generated.  Similar to Angband.
+
+~Gibbon
+
+=============================================================================
+
+September 18th - October 4th 2016
+
+1. Cleaned up the Windows build a little
+2. Increased color usage (inventory) and picking up items
+3. Nerfed OHSWORD and added FL_AWARENESS trait to it
+4. Bug fixes
+5. Some functions cleaned up
+6. Mazefile has 30th anniversary map added
+
+~Gibbon
+
+=============================================================================
+
+August - September 17th 2016
+
+1. Increased color usage
+2. Fixed some bugs
+3. Improved some functions (math) for treasure room generation
+4. Improved Windows support via Win32a pdcurses use and VC project files
+
+~Gibbon
+
+=============================================================================
+
+July 26th 2016
+
+1. Finally changed the 'clear()' function which was conflicting with curses 'clear()'.
+	This is now called 'fl_clear_and_reset_screen()' to differentiate it.
+2. Cleaned up some files.
+3. Implemented initial color stuff (menu stats and player '@').
+
+~Gibbon
+
+=============================================================================
+
+May 26 2016
+
+1. Fixed a bug for web and sleep spells not appearing cleanly on a newline.
+
+~Gibbon
+
+=============================================================================
+
+April 27 2016
+
+1. Fixed some warnings from debug builds
+2. Fixed old style functions
+
+~Gibbon
+
+=============================================================================
+
+April 26 2016
+
+1. Fixed incorrect text positions in the store when your inventory is full
+2. Using -std=gnu11 for C is now a requirement (on GCC)
+
+~Gibbon
+
+=============================================================================
+
+April 18 2016
+
+1. Hardcoded help text into help.c
+2. Allowed players to escape from the 'O' command
+3. Added a function for displaying 'back to game' (like retcont)
+4. Changed some text around to make it suitable for other scenarios
+5. Radically changed the directory structure (bringing it into the 21st century)
+6. Made a new set of *nix compatible makefiles
+
+~Gibbon
+
+=============================================================================
+
+April 12 2016
+
+1. Rewrote the readboard, writeboard and makeboard functions to be standard C.
+2. Entirely removed the help code.  Help is now in a .txt file to be read manually,
+	this isn't the 80's and we have filespace for a few extra bytes of text ;)
+3. Hardcoded the welcome message into help.c
+4. Cleaned up a few functions.
+5. Removed macros defining functions for Windows and *NIX.  Wrapped these up into ifdefs
+	and updated some deprecated functions to their modern counterparts.
+6. General cleaning, bug fixing and improvements.
+
+~Gibbon
+
+=============================================================================
+
+April 5 2016
+
+1. Cleaned up some debug warnings in GNU/Linux
+2. Fixed some incorrectly written function definitions (old style)
+3. Removed the Flail and added Hymie's sword (because he has really contributed).  This is not available in the store's, it    can only be found from adventuring and slaying.
+4. Fixed some tgoto definitions which were defined twice.
+5. Removed the need for a password for WIZARD mode.  It's in the source
+   and it was a waste of keystrokes to keep typing it.
+6. Removed the wearing of a shield by default in WIZARD mode.  Cheaters shouldn't get
+   extra help ;)
+7. Posix-ify the fl_wait function.
+
+Flail was removed because I'll need to do some curses stuff to add an extra length to the
+objects, otherwise curses goes nuts and it ain't pretty :)
+
+~Gibbon
+
+=============================================================================
+
+March 30 2016
+
+1. Removed previous changes for termcap and fred fish files due to Linux somewhere
+Requiring them to run.  I'll remove these in the future but for GNU/Linux it'll need
+more research and a dedicated fix for this platform.
+
+~Gibbon
+
+=============================================================================
+
+March 5th 2016
+
+1. Cleaned up io.c variables and custom declarations of termcap routines.
+2. De-fished io.c and tgoto to use standard termcap routines.
+3. Removed tgoto.c and .h (Fred Fish files).
+
+~Gibbon
+
+=============================================================================
+
+February 26 2016
+
+1. Replaced crusty 80's random seed macro with one that is easier to maintain (tested level generation, save and load).
+2. Added stdlib.h to relevant files for 'random' function.
+3. Cleaned up Bank display of text.
+4. Added ability to have multiple scores in the same scorefile.
+
+~Gibbon
+
+=============================================================================
+
+February 20 - 22 2016
+
+1. Fixed final warnings from debug and -Werror
+
+~Gibbon
+
+=============================================================================
+
+February 11 - 19 2016
+
+1. Removed variables from larnfunc.h and added them to header files.
+2. Cleaned up some internal things.
+
+~Gibbon
+
+=============================================================================
+
+January 1st/2nd 2016
+
+1. Removed kbhit functions for Unix-like systems (inc kbhit.c .h).
+2. Implemented recommended standard C fflush(NULL) in-place of lflushall.
+For Windows, this is kept for now.
+3. Created larn.h for keeping most of the headers in.
+4. Fixed code so it can be built on BSD systems.
+
+~Gibbon
+
+=============================================================================
+
+December 29th 2015
+
+1. Renamed OLANCE and OLANCEDEATH to OGREATSWORD and OGREATSWORDDEATH
+2. Renamed Lance of Death to Great Sword of Death (a lance isn't a very fearsome weapon)
+3. Indented all source files using GNU style
+4. Nerfed the Great Sword of Death (-1) and bumped Ring of Protection (+1).  Will make players carving monsters up just that little bit harder and balance it out better as you have strong spells and other bumps by that time.
+
+~Gibbon
+
+=============================================================================
+
+December 21st 2015
+
+1. Merges with 12.3 and 12.4.4 codebases (rebased my fixes from 12.4alpha2)
+2. Fixed monster generation
+3. Fixed a bug when picking up items that would bump a duplicate entry 2 lines down.
+4. General cleaning and fixing
+5. Made datafiles .txt
+
+~Gibbon
+
+=============================================================================
+
+December 14 2015
+
+1. A ton of fixes for segfaults
+2. Fixed boolean bug preventing the player from falling down pits / bottomless pits
+    Math used is now a much more reliable random function which around (1 / 20) times you will fall down a pit and much much less
+    a bottomless pit.
+3. Monster generation is partially fixed.  More than 1 monster will be generated OR 1 type randomly generated each time the game is loaded (possibility).
+4. Player can now pickup scrolls and potions without segfaults (segfaults will still happen when in WIZARD mode (investigating).  But that is only for testing the game anyway.
+5. Teleporting now works :)
+6. Trapdoors are fixed and happen much more frequently.
+7. Fixed segfault on OSX due to setmode.
+
+~Gibbon
+
+=============================================================================
+
+October 24 2015
+
+1. OSX (Darwin) / BSD compatible defines implemented.
+2. Darwin binary provided (64bit only)
+3. Debug code fixed for Linux and Darwin
+4. Linux Debug binary provided (Darwin in the next release)
+5. Code cleanup and modernization continuing
+6. Ammended the manual for the changes and new additions for the latest 12.50 version of Larn.  Removed a lot of 90's cruft about floppy disks and outdated installation methods.  It is also now a .odt.
+
+Todo:
+1. Rewrite the tgoto code to a free implementation
+
+I want to re-license Larn, it is a bit of a pariah without any kind of license and some of the files don't allow commercial use.  Rewrites for these parts of the code should be done.
+
+Darwin binary was built on OSX Mavericks using a freshly compiled ncurses 6.
+
+~Gibbon
+
+=============================================================================
+
+October 11 2015
+
+Changes:
+
+1. setmode in io.c is only for Win32/BSD.  Linux does not have (or need) this function.  BSDs and Solaris systems will have this as it is a traditional UNIX function that is also in Windows.  I ifdef'd this so Linux systems won't even look at it.
+
+2. I cleaned up and ported to modern compilers the conio.h file for linux.  This is included in the code as it is required for the kbhit function.  kbhit is a Windows-only function and this conio.h for Linux contains the definitions that are a direct equivalent of their Windows counterparts.  This is needed for checking for carriage returns, key presses etc.. correctly.  Comments are in polish but you don't need to read the code (unless you really want to).  Windows will continue to use it's own <conio.h> and will ignore this version.
+
+I have included pdcurses.a and panel.a as well as the header files (pdcurses was compiled as 64bit only) so Windows users who are using 8+ (as it is usually 64bit) can use this 'as is'.  Linux and UNIX users can use ncurses.
+
+The code still requires a large amount of cleaning up and modernizing, but for now it is playable and compiles.  I tested saving, scores etc and these are working correctly.
+
+Enjoy :)
+
+~Gibbon
+
+=============================================================================
+
+Larn 12.4.4
+
+Joe Neff found a bug where known spells weren't being saved correctly. Fixed.
+
+================================================================================
+
+Larn 12.4.3
+
+Win32 only. Depends on PDCurses. Name entered at character creation is now used
+for scoreboard. Keypad + Shift run supported. All chars used for numerics in
+codebas are now ints. Basic work converting to stdlib + curses instead of
+the awkward terminal hacks. Very much a work in progress.
+
+================================================================================
+
+Larn 12.4
+
+
+ANSIfication, ported to Curses, arrow key support,
+message system fix, game over confirmation prompt,
+removal of platform-specific cruft, removal of most options,
+name/sex prompt, ...
+
+================================================================================
+
+Larn 12.3.1
+
+Prompted by Pat Ryan, fix a bug in the dropobj() code in main.c that
+allowed the player to drop a negative amount of gold.  In the process, fix
+the backwards carriage return logic when printing the error response.
+Document the new SIG_RETURNS_INT #define introduced by Bill Randle when the
+software was posted.
+Prompted by Lasse Oestergaard, guard against out-of-bound array references
+in movem.c when on the Home level.  Also fixed a bug where a 'smart' monster
+would fail to move towards the player when the player was on the boundary.
+Prompted by Mitch Gorman, make the EXTRA #define compile and work under
+MS-DOS.
+
+================================================================================
+
+This is a list of the fixes and enhancements made to create Larn V12.3 from
+Larn 12.2.  SPOILER ALERT!
+
+1. The player's position is now marked with an ampersand, instead of just with
+   the cursor.
+
+2. The 'G' command ("give the stairs a kick") has been removed.  Since you can
+   tell the stairs apart (as opposed to the original Larn 12.0), this command
+   doesn't make sense anymore.
+
+3. The 'V' command has been removed and its information incorporated into the
+   'v' command.
+
+4. An idea from Ultra-Larn: when the player enters the 5th level branch of the
+   bank after teleporting, the '?' in the level display is changed to a '5'.
+
+5. Larn -? can be used to print command line arguments.
+
+6. The player is no longer positioned near the shaft of the volcano when
+   climbing down to the first volcano level.
+
+7. A couple of pauses were eliminated, making some actions very fast now.
+
+8. The player can no longer escape punishment by donating more gold then he
+   possesses when praying at the altar.
+
+9. When performing an action and doing an inventory list, a character typed at
+   the "press space for more" prompt is taken as the inventory object to select.
+   That is, if you say 'q' for quaff, '*' to see all the potions you can quaff,
+   Larn used to require that you type a space before you could select a potion,
+   causing the list to disappear.  You can now select an object in the list while
+   the list is displayed.  You can also use Escape and Return in place of a
+   space.
+
+10. The spells/potions/scrolls inventory ('I' command) are now sorted.
+
+11. The '/' command has been added, to allow the user to identify objects.
+    You can choose to either type a character or move the cursor around to
+    select a character to identify (a la Hack).  The only limitation is that
+    characters that have several objects (weapons, gems, dragons, etc) display
+    all the matching object names.
+
+12. The potion of gold detection has been changed into the potion of object
+    detection.  It will find scrolls, books, potions, weapons, armor, and
+    artifacts.  If you have an old savefile, all gold detection potions get
+    turned into object detection potions.
+
+13. It is now possible to find rings of cleverness in the dungeon.
+
+14. It is now possible for killed monsters to drop splint mail, battle axes,
+    cookies, and rings of cleverness.
+
+15. Source cleanup, reduction in the size of the executable and the memory
+    required, performance improvements.
+
+16. Fix problems with positioning the player when entering or leaving the
+    dungeon.  You will no longer find yourself on the opposite side of the
+    town level when leaving the dungeon.  You will no longer be able to enter
+    the dungeon on top of a monster.
+
+17. Prevented monsters from moving into the dungeon entrance, causing them to
+    be destroyed when the player exits the dungeon.  The top dungeon level now
+    has the dungeon entrance character where there used to be a space.
+
+18. If you are standing on a chest and try and open it, you will no longer pick
+    it up immediately if you have auto-pickup on.
+
+19. Added the capability to add comments to the options file.
+
+20. Fixed the bug where a missing options file prevented anything from being
+    displayed.
+
+21. There is now a visible repeat count when greater than 10 (a la Hack).  You
+    can also edit the repeat count.
+
+22. The 'm' command has been added to move onto an object without picking it
+    up (a la Hack).
+
+23. Fixed a problem where the a) object_identification in the inventory couldn't be dulled.
+
+25. Allow a space between '-o' and the option filename.
+
+26. Fix possible errors when looking at the inventory.
+
+27. Prevent the player from changing levels into a level from the maze file with
+    a space that had no means of exit.
+
+================================================================================
+
+This is a list of the fixes and enhancements made to create Larn V12.2 from
+Larn 12.0.  SPOILER ALERT!
+
+Changes made to create version 12.2 from 12.1:
+
+1.  Add messages to improve feedback to the user.
+
+2.  Improved screen drawing performance again.
+
+3.  Flying monsters (bats, floating eyes) are no longer affected by traps.
+
+4.  Added HACK-like objects, with 'original-objects' option.
+
+5.  Added 'bold-objects' option.
+
+6.  Fixed a bug where the game would apparently 'hang' for a long period of
+    time, especially just after killing a monster with a missile spell.
+
+7.  Prevented invulnerability when doing VPR on a throne or altar.
+
+8.  Scrolls of pulverization now have the same affect when directed against
+    an altar or fountain as they did directed against a throne.  VPR spell
+    cause a waterlord to appear when used near a fountain.
+
+9.  Added the '@' command and 'auto-pickup' option.
+
+10. Added 'prompt-on-objects' option.
+
+11. Improved monster movement performance again.
+
+12. You can now weild '-' to unweild your weapon.
+
+13. Waterlords can now be found in the dungeon, not just when washing at a
+    fountain.
+
+14. The Eye of Larn can now be sold in the Trading Post.
+
+15. Spells can now bounce off mirrors at an angle.
+
+
+Changes made to create version 12.1 from 12.0:
+
+1.  When drinking at a fountain, "improved sight" caused the "see invisible"
+    potion to be known by the player.  The player must now identify the potion
+    in the usual manner.
+
+2.  Falling through a pit told you the damage you received, but falling through
+    a trap door did not.  Made trap doors act the same as pits.
+
+3.  If you dropped a ring of dexterity/strength/cleverness that had been dulled
+    to a negative amount, the corresponding stat was permanently increased.  No
+    longer.
+
+4.  The potion of monster location would show invisible monsters as the floor
+    character on new levels.  Now prevented.
+
+5.  Selling all your gems at the bank could destroy items in your inventory.
+
+6.  Monster creation was being allowed on closed doors.  This was particularly
+    a problem with treasure rooms, since it meant that a monster much too
+    powerful for the player to handle was loose in the maze.  Monsters cannot
+    now be created on closed doors.
+
+7.  When entering a number (when entering gold amounts) you could not use the
+    backspace key to delete digits.  Fixed.
+
+8.  To make it more convenient when selling items in the Larn Trading Post, a
+    display of those items in the players inventory that can be sold has been
+    added.
+
+9.  Performance of the display has been improved slightly.
+
+10. Monster movement has been improved for large numbers of monsters.  It is
+    somewhat better on PC's, even with aggravation.
+
+11. I have added new mazes to LARN.MAZ.
+
+12. A Rogue-like command mode has been added, and is the default.  The
+    version 12.0 prompting mode has been preserved for those who like it,
+    accessible via a command line option.  Command letters have been added
+    to provide the ability to perform all the same actions as the prompt mode.
+    The help file and command line help have been updated.  When in command
+    mode, the player will automatically pick up objects, and can read, quaff,
+    eat, look at, and pick up objects that you are standing on.
+
+    In order to implement the new commands, the A and D commands from version
+    12.0 have been changed.  They are now ^A and I.  For consistancy, to see
+    the list of known spells at the spell prompt, 'I' also shows all known
+    spells.
