@@ -423,21 +423,11 @@ fl_look_for_an_object_and_give_options(
 			/* fall through to OTELEPORTER case below!!! */
 			[[fallthrough]];
 		case OTELEPORTER:
-			if (TRnd(20) < 15) {
-				fl_wait(FL_WAIT_DURATION);
-				fl_teleport(0);
-				for (i = 0; i < FL_MAX_VERTICAL_POSITION; i++)
-					for (j = 0; j < FL_MAX_HORIZONTAL_POSITION; j++) {
-						been_here_before[j][i] = KNOWALL;
-					}
-				cdesc[FL_TELEPORT_FLAG] = 0;
-				fl_display_message("\n\nThe teleporter has miraculously made this maze known!");
-			} else {
-				fl_display_message("\nYou have been teleported!\n");
+				cdesc[FL_TELEPORT_FLAG] = 1;
+				fl_display_message("\n\nYou have been teleported!");
 				fl_wait(FL_WAIT_DURATION);
 				fl_teleport(0);
 				refresh();
-			}
 			break;
 		case OTRAPARROWIV:		/* for an arrow trap */
 			if (TRnd(17) < 13) {
