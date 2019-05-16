@@ -14,6 +14,12 @@ May 2019
 	always spawn next to a mob room.
 10. Fixed a bug where the openin of the door would overlap
 	the 'LVL' field on the text drawing area.
+11. Converted codebase to C++11 and moved around some
+	variables to correctly extern them.
+12. Removed all config files (because it was a C++17 header).
+13. Removed the last of the preprocessor macros and converted
+	them to constants and one to a static function.
+14. Fixed a bug where the door text would overlap the stat bar.
 
 ~Gibbon
 

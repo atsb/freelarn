@@ -555,24 +555,24 @@ fl_a_open_dungeon_door(int x, int y) {
 				cdesc[FL_AGGRAVATE] += TRnd(400);
 				break;
 			case 7:
-				fl_display_message("\nYou are jolted by an electric shock");
+				fl_display_message("\n\nYou are jolted by an electric shock");
 				lastnum = 274;
 				CoreFuncs.DecreasePHealth(TRnd(20));
 				bottomline();
 				break;
 			case 8:
-				fl_display_message("\nYou feel drained");
+				fl_display_message("\n\nYou feel drained");
 				CoreFuncs.DecreasePlayerLevel();
 				break;
 			case 9:
-				fl_display_message("\nYou suddenly feel weaker");
+				fl_display_message("\n\nYou suddenly feel weaker");
 				if (cdesc[FL_STRENGTH] > 3) {
 					cdesc[FL_STRENGTH]--;
 				}
 				bottomline();
 				break;
 			default:
-				fl_display_message("\nThe door makes an awful groan, but remains stuck");
+				fl_display_message("\n\nThe door makes an awful groan, but remains stuck");
 				break;
 		}
 		return (0);

@@ -12,17 +12,14 @@
     limitations under the License.
 */
 
-#define HAVESEEN  0x1
-#define KNOWHERE  0x2
-#define KNOWALL   (HAVESEEN | KNOWHERE)
-#define LARNHOME ""
-/* tax rate for the LRS */
-#define TAXRATE 1/20
+const int HAVESEEN = 1;
+const int KNOWHERE = 2;
+const int KNOWALL = HAVESEEN | KNOWHERE;
 
-/*  Inline functions and variables.
-    Much better, safer and cleaner!
-    ~Gibbon
-*/
+//Tax rate for the LRS
+const int TAXRATE = 1/20;
+
+//Termcap stuff
 const int FL_MAX_HORIZONTAL_POSITION = 67;
 const int FL_MAX_VERTICAL_POSITION = 17;
 const int ST_START = 1;
@@ -34,7 +31,8 @@ const int T_END = 8;
 const int CL_DOWN = 14;
 const int FL_CURSOR = 15;
 
-/* Destroy object at present location */
+//Inline functions ~Gibbon
+//Destroy object at present location
 extern int object_identification[FL_MAX_HORIZONTAL_POSITION][FL_MAX_VERTICAL_POSITION];
 extern int player_horizontal_position;
 extern int player_vertical_position;
@@ -76,6 +74,7 @@ extern char *fl_buffer_pointer;
 inline int FL_CLEAR_TO_END_OF_LINE(void) {
 	return *fl_buffer_pointer++ = CL_LINE;
 }
+//End Inline functions
 
 const int FL_MAX_CAVE_OF_LARN_LEVEL = 11;
 const int FL_MAX_TEMPLE_OF_LARN_LEVEL = 3;
@@ -352,15 +351,11 @@ const int ARMORTYPES = 6;
 /* maximum number of spheres fl_move_spheres_of_annihilation can handle */
 const int SPHMAX = 20;
 
-#if 0
-	const int IDISTNORM = 8;		/* was 17 - dgk */
-	const int IDISTAGGR = 20;	/* was 40 - dgk */
-#endif
 const int IDISTNORM = 17;	/* was 17 - dgk */
 const int IDISTAGGR = 40;	/* was 40 - dgk */
 const int MAX_QUEUE = 100;
 
-//Inline functions for raising and losing health and spells
+//Inline functions for raising and losing health and spells ~Gibbon
 extern long cdesc[];
 
 inline void FL_RAISEMAXHEALTH(int y) {
@@ -379,3 +374,4 @@ inline void FL_LOSEMAXSPELLS(int y) {
 	cdesc[FL_SPELLS] -= y;
 	cdesc[FL_SPELLMAX] -= y;
 }
+//End Inline functions

@@ -24,8 +24,6 @@
 
 using std::cout;
 
-#define nlprc(_ch) fl_output_single_byte_to_output_buffer(_ch)
-
 static void bot_hpx(void);
 static void bot_spellx(void);
 static void botside(void);
@@ -35,6 +33,12 @@ static int bot1f = 0, bot2f = 0, bot3f = 0;
 static int always = 0;
 int regen_bottom = 0;
 extern char logname[];
+
+//This new static function is to replace the 
+//preprocessor macro doing the same thing (just cleaner). ~Gibbon
+static void new_line_print_char(char ch) {
+	return fl_output_single_byte_to_output_buffer(ch);
+}
 
 /*
     bottomline()
@@ -403,7 +407,7 @@ drawscreen(void) {
 			    an otherwise known line.
 			*/
 			if (been_here_before[i][j] == 0) {
-				nlprc(' ');
+				new_line_print_char(' ');
 			} else if (been_here_before[i][j] & HAVESEEN) {
 				/*
 				    if monster there and the user still knows the place,
@@ -411,21 +415,21 @@ drawscreen(void) {
 				    there before.
 				*/
 				if (i == player_horizontal_position && j == player_vertical_position) {
-					nlprc('@');
+					new_line_print_char('@');
 					continue;
 				}
 				k = monster_identification[i][j];
 				if (k && been_here_before[i][j] & KNOWHERE) {
-					nlprc(monstnamelist[k]);
+					new_line_print_char(monstnamelist[k]);
 				} else {
-					nlprc(objnamelist[object_identification[i][j]]);
+					new_line_print_char(objnamelist[object_identification[i][j]]);
 				}
 			} else {
 				/*
 				    error condition.  recover by resetting location
 				    to an 'unknown' state.
 				*/
-				nlprc(' ');
+				new_line_print_char(' ');
 				monster_identification[i][j] = object_identification[i][j] = 0;
 			}
 		}
