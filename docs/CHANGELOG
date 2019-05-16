@@ -26,6 +26,8 @@ May 2019
 	calls.
 17. Removed unused legacy variables and converted some inlines
 	into constants.
+18. Removed [[fallthrough]] but left as a comment to see when
+	statements fall through.
 
 ~Gibbon
 
