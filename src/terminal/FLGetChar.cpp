@@ -85,8 +85,7 @@ llgetch(void) {
 /*
     get char (with echo)
 */
-int
-ansiterm_getche(void) {
+int ansiterm_getche(void) {
 	int key;
 	echo();
 	key = llgetch();
@@ -97,15 +96,13 @@ ansiterm_getche(void) {
 /*
     get char
 */
-int
-ansiterm_getch(void) {
+int ansiterm_getch(void) {
 	return llgetch();
 }
 
 
 /* wgetch() is the modern way. -Gibbon */
 
-void
-ansiterm_delch(void) {
+void ansiterm_delch(void) {
 	delch();
 }

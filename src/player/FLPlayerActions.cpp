@@ -30,6 +30,7 @@ using std::cout;
 
 static void fl_temple_actions(int);
 static void act_prayer_heard(void);
+extern int (*get_final_char_keyboard)(void);
 
 /*
     act_remove_gems

@@ -12,10 +12,5 @@
     limitations under the License.
 */
 
-class Termcap {
-	public:
-		const char *atgoto(const char *, int, int);
-};
-void term_conversion(void);
-
-const int MAXARGS = 2;
+const char* FL_SCORE_FILE_NAME =	"fl_scorefile.dat";
+const char* FL_SAVE_FILE_NAME = 	"fl_savefile.dat";

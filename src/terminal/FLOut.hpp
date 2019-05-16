@@ -18,4 +18,4 @@
 #include "FLTerminal.hpp"
 
 void ansiterm_out(const char *, int);
-inline const int ANSITERM_ESC = 27;
+const int ANSITERM_ESC = 27;

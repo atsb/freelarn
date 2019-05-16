@@ -77,6 +77,7 @@ Load::load(void) {
 }
 
 static time_t zzz = 0;
+extern const char* FL_BUILD_VERSION;
 
 int
 Save::savegame(char *fname) {

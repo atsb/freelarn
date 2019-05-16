@@ -65,6 +65,8 @@ static int readboard(void);
 static int writeboard(void);
 static struct scofmt sco[FL_TOTAL_NAMES_ON_SCORE_BOARD];
 static struct wscofmt winr[FL_TOTAL_NAMES_ON_SCORE_BOARD];
+extern bool FL_WIZARD_MODE_ENABLED;
+extern int (*get_final_char_keyboard)(void);
 
 const char *whydead[31] = {
 	"",

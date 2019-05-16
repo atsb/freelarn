@@ -17,6 +17,7 @@
 	#include <conio.h>
 #endif
 
+#include "FLMain.hpp"
 #include "templates/FLTMath.hpp"
 #include "terminal/FLTerminal.hpp"
 #include "terminal/FLGetChar.hpp"
@@ -42,6 +43,7 @@ int random_monster_creation = 80;			/*  random monster creation counter     */
 int nomove = 0;			/* if (nomove) then don't count next iteration as a move */
 signed int save_mode = 0;	/* 1 if doing a save game */
 int restorflag = 0;
+extern int (*get_final_char_keyboard)(void);
 
 /*
 ************

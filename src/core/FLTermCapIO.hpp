@@ -41,4 +41,4 @@ char *tmcapcnv(char *, char *);
 void enter_name(void);
 
 /* size of the lgetw() and lgetl() buffer */
-inline const int LINBUFSIZE = 128;
+const int LINBUFSIZE = 128;

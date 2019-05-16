@@ -55,6 +55,8 @@ static char fl_retrieve_word_buffer[LINBUFSIZE];
 static void ttputch(int);
 static void tputs(const char *);
 static void flush_buf(void);
+static const char* FL_MESSAGE_LOG_NAME = "fl_messages.txt";
+int (*get_final_char_keyboard)(void);
 
 /*
     Subroutine to set up terminal in correct mode for game

@@ -207,9 +207,9 @@ void fl_put_queue(int x, int y, int d) {
 /*  take a location from the proximity ripple queue
 */
 void fl_get_queue(int x, int y, int d) {
-	(x) = queue[queue_head].x;
-	(y) = queue[queue_head].y;
-	(d) = queue[queue_head].distance_from;
+	queue[queue_head].x = (x);
+	queue[queue_head].y = (y);
+	queue[queue_head].distance_from = (d);
 	queue_head++;
 	if (queue_head == MAX_QUEUE)
 		queue_head = 0;

@@ -24,6 +24,6 @@ class FLStore {
 
 void banktitle(const char*);
 /* number of items in the dnd inventory table */
-inline const int MAXITM = 83;
+const int MAXITM = 83;
 /* number of items shown in the store */
-inline const int MAXDNDSIZE = 26;
+const int MAXDNDSIZE = 26;

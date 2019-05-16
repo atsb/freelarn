@@ -19,7 +19,7 @@
 #include <time.h>
 #include "FLInlineData.hpp"
 
-inline const int MEG = 1000000;
+const int MEG = 1000000;
 
 /*  this is the structure that holds the entire dungeon specifications  */
 struct cel {

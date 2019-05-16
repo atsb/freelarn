@@ -24,34 +24,35 @@
 #include "../core/FLInventory.hpp"
 #include "../save/FLSave.hpp"
 #include "../lexical/FLTok.hpp"
-#include "../config/FLConfig.hpp"
 
 using namespace std;
+
+extern int (*get_final_char_keyboard)(void);
 
 void
 fl_create_the_player_character(void) {
 	int i;
-	auto fl_config_reader = ConfigReader::instance();
+
 	get_final_char_keyboard = ansiterm_getch;
 	fl_clear_and_reset_screen();
-	fl_config_reader->load("fl_config.cfg");
-	cdesc[FL_HPMAX] = cdesc[FL_HP] = fl_config_reader->read<int>("HP");
-	cdesc[FL_HUNGERMAX] = cdesc[FL_HUNGER] = fl_config_reader->read<int>("HGR");
+
+	cdesc[FL_HPMAX] = cdesc[FL_HP] = 100;
+	cdesc[FL_HUNGERMAX] = cdesc[FL_HUNGER] = 100;
 	/*  player starts at level one          */
-	cdesc[FL_LEVEL] = fl_config_reader->read<int>("LEVEL");
+	cdesc[FL_LEVEL] = 1;
 	/*  total # spells starts off as 3  */
-	cdesc[FL_SPELLMAX] = cdesc[FL_SPELLS] = fl_config_reader->read<int>("SPELLS");
+	cdesc[FL_SPELLMAX] = cdesc[FL_SPELLS] = 3;
 	/* start regeneration correctly */
-	cdesc[FL_REGENCOUNTER] = fl_config_reader->read<int>("REGENCOUNTER");
-	cdesc[FL_ECOUNTER] = fl_config_reader->read<int>("ECOUNTER");
+	cdesc[FL_REGENCOUNTER] = 16;
+	cdesc[FL_ECOUNTER] = 96;
 	cdesc[FL_SHIELD] = cdesc[FL_WEAR] = cdesc[FL_WIELD] = -1;
 	for (i = 0; i < MAXINVEN; i++) {
 		iven[i] = 0;
 	}
 	/* he knows protection, magic missile */
 	spelknow[0] = spelknow[1] = 1;
-	iven[0] = fl_config_reader->read<int>("STARTING-ARMOR");
-	iven[1] = fl_config_reader->read<int>("STARTING-WEAPON");
+	iven[0] = 25;
+	iven[1] = 31;
 	iven[2] = 0;
 	ivenarg[1] = ivenarg[0] = cdesc[FL_WEAR] = 0;
 	cdesc[FL_WIELD] = 1;
