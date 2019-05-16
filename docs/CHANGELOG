@@ -28,6 +28,7 @@ May 2019
 	into constants.
 18. Removed [[fallthrough]] but left as a comment to see when
 	statements fall through.
+19. Optimised makefiles to supress fallthrough warning.
 
 ~Gibbon
 

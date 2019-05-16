@@ -1,5 +1,5 @@
 CC = g++
-CC_FLAGS = -std=c++11 -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werror -pedantic-errors -Wpointer-arith -Woverloaded-virtual -Wuninitialized -Wshadow -Winit-self -Wmissing-declarations -fomit-frame-pointer -DWINDOWS
+CC_FLAGS = -std=c++11 -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werror -pedantic-errors -Wpointer-arith -Woverloaded-virtual -Wshadow -Wmissing-declarations -fomit-frame-pointer -Wimplicit-fallthrough=0 -DWINDOWS
 
 EXEC = freelarn.exe
 SOURCES = $(wildcard ../src/*.cpp) $(wildcard ../src/**/*.cpp)
