@@ -1,5 +1,5 @@
 CC = g++
-CC_FLAGS = -g -std=c++1z -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werror -pedantic-errors -Wpointer-arith -Woverloaded-virtual -Wuninitialized -Wshadow -Winit-self -Wmissing-declarations -fomit-frame-pointer -DWINDOWS
+CC_FLAGS = -g -std=c++11 -Winline -fno-elide-constructors -pipe -Wall -Wextra -Werror -pedantic-errors -Wpointer-arith -Woverloaded-virtual -Wuninitialized -Wshadow -Winit-self -Wmissing-declarations -fomit-frame-pointer -DWINDOWS
 
 EXEC = freelarn.exe
 SOURCES = $(wildcard ../src/*.cpp) $(wildcard ../src/**/*.cpp)
@@ -13,3 +13,4 @@ $(EXEC): $(OBJECTS)
 	$(CC) -c $(CC_FLAGS) $< -o $@
 
 clean:
+	rm -f $(EXEC) $(OBJECTS)
