@@ -918,29 +918,29 @@ fl_direction(int *x, int *y) {
 		switch (ttgetch()) {
 			case 'b':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'n':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'y':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'u':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'h':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'k':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'l':
 				i++;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 'j':
 				i++;
 				/* Added an ESC. -Gibbon */
-				[[fallthrough]];
+				//[[fallthrough]];
 			case '\33':
 				drawscreen();
 				*x = player_horizontal_position + diroffx[i];

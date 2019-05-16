@@ -755,7 +755,7 @@ tmcapcnv(char *sd, char *ss) {
 					tmstate = 0;
 				}
 				*sd++ = *ss;
-				[[fallthrough]];
+				//[[fallthrough]];
 			case 3:
 				if (*ss == 'm') {
 					if (tmdigit) {
@@ -765,7 +765,7 @@ tmcapcnv(char *sd, char *ss) {
 					}
 					tmstate = 0;
 				}
-				[[fallthrough]];
+				//[[fallthrough]];
 			default:
 				*sd++ = *ss;
 		};
