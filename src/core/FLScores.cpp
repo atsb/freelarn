@@ -36,6 +36,7 @@
 #include "FLScores.hpp"
 #include "FLSystemDependant.hpp"
 #include "FLTermCapIO.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using std::cout;
 
@@ -512,7 +513,7 @@ cantprotect:
 	fl_display_message("\nPress any key to continue. ");
 	ttgetch();
 	fl_output_buffer_flush();
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	enable_scroll = 0;
 	cdesc[FL_GOLD] += cdesc[FL_BANK_ACCOUNT];
 	cdesc[FL_BANK_ACCOUNT] = 0;
@@ -525,7 +526,7 @@ cantprotect:
 		}
 	}
 	fl_output_buffer_flush();
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	enable_scroll = 0;
 	showscores(x);     /* if we updated the scoreboard */
 	fl_termcap_cursor_position(1, 24);

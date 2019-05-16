@@ -15,6 +15,6 @@
 #include <cstdlib>
 
 template<typename T>
-inline T THungerTime(const T& x) {
-	return (FL_TOTAL_MOBUL_LIMIT() - gtime == x);
+T THungerTime(const T& x) {
+	return (FL_TOTAL_MOBUL_LIMIT - gtime == x);
 }

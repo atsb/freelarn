@@ -30,10 +30,10 @@ void FLCoreFuncs::IncreaseExperience(long x) {
 	while (cdesc[FL_EXPERIENCE] >= skill[cdesc[FL_LEVEL]] && (cdesc[FL_LEVEL] < FL_MAX_PLAYER_LEVEL)) {
 		tmp = (cdesc[FL_CONSTITUTION]) >> 1;
 		cdesc[FL_LEVEL]++;
-		FL_RAISEMAXHEALTH(TRnd(3) + TRnd((tmp > 0) ? tmp : 1));
-		FL_RAISEMAXSPELLS(TRund(3));
+		TRaiseMaxHealth(TRnd(3) + TRnd((tmp > 0) ? tmp : 1));
+		TRaiseMaxSpells(TRund(3));
 		if (cdesc[FL_LEVEL] < 7) {
-			FL_RAISEMAXHEALTH(cdesc[FL_CONSTITUTION] >> 2);
+			TRaiseMaxHealth(cdesc[FL_CONSTITUTION] >> 2);
 		}
 	}
 	if (cdesc[FL_LEVEL] != i) {

@@ -12,23 +12,24 @@
     limitations under the License.
 */
 
-#include "FLStore.hpp"
-#include "../config/FLIncludeData.hpp"
-#include "FLTermCapIO.hpp"
-#include "../templates/FLTTerm.hpp"
+extern char *fl_buffer_pointer;
+extern int regen_bottom;
 
-/*  new function for displaying gold in inventory inside trading posts.
-    part of feature request by hymie0. ~Gibbon */
-int FLStore::AmountGoldTrad(void) {
-	lprintf("You have");
-	lprintf(" %-6d ", cdesc[FL_GOLD]);
-	lprintf("gold pieces.");
-	return (0);
+/* Turn on bold display for the terminal */
+template<typename T>
+T TSetTextBold(const T& x) {
+	return *fl_buffer_pointer++ = x;
 }
-/*Fix for bug #23 ~Gibbon*/
-int FLStore::LRSWelcomeText(void) {
-	TClearAndResetScreen(FL_CLEAR);
-	enable_scroll = 0;
-	lprintf("Welcome to the Larn Revenue Service\n");
-	return (0);
+/* Turn off bold display for the terminal */
+template<typename T>
+T TResetTextBold(const T& x) {
+	return *fl_buffer_pointer++ = x;
+}
+template<typename T>
+T TClearAndResetScreen(const T& x) {
+	return *fl_buffer_pointer++ = x, regen_bottom;
+}
+template<typename T>
+T TClearToEOL(const T& x) {
+	return *fl_buffer_pointer++ = x;
 }

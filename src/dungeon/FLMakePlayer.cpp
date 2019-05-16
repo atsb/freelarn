@@ -24,6 +24,7 @@
 #include "../core/FLInventory.hpp"
 #include "../save/FLSave.hpp"
 #include "../lexical/FLTok.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using namespace std;
 
@@ -34,9 +35,9 @@ fl_create_the_player_character(void) {
 	int i;
 
 	get_final_char_keyboard = ansiterm_getch;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 
-	cdesc[FL_HPMAX] = cdesc[FL_HP] = 100;
+	cdesc[FL_HPMAX] = cdesc[FL_HP] = 10;
 	cdesc[FL_HUNGERMAX] = cdesc[FL_HUNGER] = 100;
 	/*  player starts at level one          */
 	cdesc[FL_LEVEL] = 1;
@@ -64,6 +65,6 @@ fl_create_the_player_character(void) {
 		cdesc[i] = MAXINVEN;
 	}
 	fl_recalculate_armor_class();
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	enter_name();
 }

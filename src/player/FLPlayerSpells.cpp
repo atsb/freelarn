@@ -21,6 +21,7 @@
 #include "../core/FLScores.hpp"
 #include "../core/FLSystemDependant.hpp"
 #include "../core/FLFuncs.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using std::cout;
 
@@ -57,9 +58,9 @@ fl_cast_a_spell(void) {
 	fl_termcap_cursor_position(1, 24);
 	if (cdesc[FL_SPELLS] <= 0) {
 		move(10, 19);
-		fl_set_text_to_bold();
+		TSetTextBold(ST_START);
 		fl_display_message("\nYou don't have any spells!");
-		fl_reset_text_bold();
+		TResetTextBold(ST_END);
 		refresh();
 		return;
 	}

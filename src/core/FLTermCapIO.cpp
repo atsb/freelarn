@@ -44,6 +44,7 @@
 #include "../templates/FLTMath.hpp"
 #include "../terminal/FLGetChar.hpp"
 #include "../terminal/FLOut.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using namespace std;
 
@@ -65,7 +66,7 @@ int (*get_final_char_keyboard)(void);
 */
 void
 fl_setup_terminal(void) {
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	enable_scroll = 1;
 	get_final_char_keyboard = ansiterm_getch;
 }

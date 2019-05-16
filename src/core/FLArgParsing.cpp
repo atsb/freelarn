@@ -27,6 +27,7 @@
 #include "../save/FLSave.hpp"
 #include "../player/FLHunger.hpp"
 #include "../terminal/FLGetChar.hpp"
+#include "../templates/FLTTerm.hpp"
 
 extern char viewflag;
 const char* FL_BUILD_VERSION = "CENTAUR";
@@ -116,7 +117,7 @@ parse(void) {
 				prayed = 1;
 				return;
 			case '~':
-				fl_clear_and_reset_screen();
+				TClearAndResetScreen(FL_CLEAR);
 				enable_scroll = 0;
 				showscores(0);     /* if we updated the scoreboard */
 				fl_termcap_cursor_position(1, 24);

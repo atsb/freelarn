@@ -25,6 +25,7 @@
 #include "FLHunger.hpp"
 #include "../core/FLFuncs.hpp"
 #include "../core/FLInventory.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using std::cout;
 
@@ -312,13 +313,13 @@ fl_a_desecrate_an_altar(void) {
 		fl_display_message("\nThe altar explodes violently and spawns a monster!");
 		CoreFuncs.DecreasePHealth(5);
 		cdesc[FL_AGGRAVATE] += 2500;
-		fl_forget_data();
+		TForgetData(0);
 	} else if (TRnd(101) < 30) {
 		fl_display_message("\nThe altar crumbles into a pile of dust before your eyes");
-		fl_forget_data();		/*  remember to destroy the altar   */
+		TForgetData(0);		/*  remember to destroy the altar   */
 	} else {
 		fl_display_message("\nThe altar was desecrated and ruined!");
-		fl_forget_data();
+		TForgetData(0);
 	}
 	return;
 }
@@ -335,9 +336,9 @@ fl_a_give_donation(void) {
 	for (;;) {
 		fl_display_message("\n\n");
 		fl_termcap_cursor_position(1, 24);
-		FL_CLEAR_TO_END_OF_LINE();
+		TClearToEOL(CL_LINE);
 		fl_termcap_cursor_position(1, 23);
-		FL_CLEAR_TO_END_OF_LINE();
+		TClearToEOL(CL_LINE);
 		fl_display_message("how much do you donate? ");
 		k = readnum((int) cdesc[FL_GOLD]);
 		fl_display_message("\n");
@@ -387,7 +388,7 @@ fl_a_give_donation(void) {
 		*/
 		fl_display_message("You don't have that much!");
 	}
-	fl_forget_data();
+	TForgetData(0);
 }
 
 
@@ -419,7 +420,7 @@ fl_a_just_pray(void) {
 		fl_create_a_monster(fl_create_monster(level + 1));
 	}
 	return;
-	fl_forget_data();
+	TForgetData(0);
 }
 
 /*
@@ -449,7 +450,7 @@ fl_a_give_thanks(void) {
 			CoreFuncs.IncreaseExperience(600);
 			//Then we remove the statue from the inventory.  If the user has more than 1 all will be removed. ~Gibbon
 			iven[i] = 0;
-			fl_forget_data();
+			TForgetData(0);
 		}
 	return;
 }
@@ -466,7 +467,7 @@ act_prayer_heard(void) {
 	/* protection field */
 	cdesc[FL_ALTPRO] += 500;
 	bottomline();
-	fl_forget_data();
+	TForgetData(0);
 }
 
 /*
@@ -480,10 +481,10 @@ fl_a_ignore_an_altar(void) {
 		fl_create_a_monster(fl_create_monster(level + 1));
 		fl_display_message("The altar turns into a monster!");
 		cdesc[FL_AGGRAVATE] += TRnd(450);
-		fl_forget_data();
+		TForgetData(0);
 	} else {
 		fl_display_message("\nThe altar crumbles into stone!");
-		fl_forget_data();
+		TForgetData(0);
 	}
 	return;
 }
@@ -799,19 +800,19 @@ floor_consume(int search_item, const char *cons_verb) {
 	*/
 	switch (i) {
 		case OCOOKIE:
-			fl_forget_data();
+			TForgetData(0);
 			break;
 		case OBOOK:
 			fl_read_a_book(object_argument[player_horizontal_position][player_vertical_position]);
-			fl_forget_data();
+			TForgetData(0);
 			break;
 		case OPRAYERBOOK:
 			fl_read_a_prayer_book(object_argument[player_horizontal_position][player_vertical_position]);
-			fl_forget_data();
+			TForgetData(0);
 			break;
 		case OPOTION:
 			fl_drink_potion(object_argument[player_horizontal_position][player_vertical_position], 1);
-			fl_forget_data();
+			TForgetData(0);
 			break;
 		case OSCROLL:
 			/*  scrolls are tricky because of teleport.

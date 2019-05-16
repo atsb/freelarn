@@ -30,11 +30,11 @@ void FLCoreFuncs::DecreaseExperience(long x) {
 			cdesc[FL_LEVEL] = 1;  /*  down one level      */
 		}
 		tmp = (cdesc[FL_CONSTITUTION]) >> 1;	/* lose hpoints */
-		FL_LOSEMAXHEALTH(TRnd((tmp > 0) ? tmp : 1));	/* lose hpoints */
+		TLowerMaxHealth(TRnd((tmp > 0) ? tmp : 1));	/* lose hpoints */
 		if (cdesc[FL_LEVEL] < 7) {
-			FL_LOSEMAXSPELLS((cdesc[FL_CONSTITUTION] >> 2));
+			TLowerMaxSpells((cdesc[FL_CONSTITUTION] >> 2));
 		}
-		FL_LOSEMAXHEALTH(TRund(3));	/*  lose spells     */
+		TLowerMaxSpells(TRund(3));	/*  lose spells     */
 	}
 	if (i != cdesc[FL_LEVEL]) {
 		fl_termcap_cursor_position(1, 24);

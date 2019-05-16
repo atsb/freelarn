@@ -20,6 +20,12 @@ May 2019
 13. Removed the last of the preprocessor macros and converted
 	them to constants and one to a static function.
 14. Fixed a bug where the door text would overlap the stat bar.
+15. Removed all inline variables and functions and replaced with
+	templated functions instead.
+16. New file 'FLTTerm.hpp' which contains templates for terminal
+	calls.
+17. Removed unused legacy variables and converted some inlines
+	into constants.
 
 ~Gibbon
 

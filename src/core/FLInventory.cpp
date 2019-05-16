@@ -20,6 +20,7 @@
 #include "FLFuncs.hpp"
 #include "FLInventory.hpp"
 #include "FLTermCapIO.hpp"
+#include "../templates/FLTTerm.hpp"
 
 static void fl_clear_for_inventory(void);
 static void fl_draw_after_inventory(void);
@@ -84,7 +85,7 @@ qshowstr(char select_allowed) {
 		if (iven[k] != 0) {
 			itemselect = fl_display_inventory(k, select_allowed);
 		}
-	lprintf("\nElapsed time is %d. You have %d mobuls left", gtime / 100, (FL_TOTAL_MOBUL_LIMIT() - gtime) / 100);
+	lprintf("\nElapsed time is %d. You have %d mobuls left", gtime / 100, FL_TOTAL_MOBUL_LIMIT - gtime / 100);
 	itemselect = fl_more_info(select_allowed);
 	if (select_allowed) {
 		return ((itemselect > 0) ? itemselect : 0);
@@ -98,7 +99,7 @@ qshowstr(char select_allowed) {
 */
 static void
 fl_clear_for_inventory(void) {
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	enable_scroll = 0;
 }
 
@@ -129,7 +130,7 @@ fl_display_inventory(int index, char select_allowed) {
 		case OSAPPHIRE:
 		case ONOTHEFT:
 			fl_output_single_byte_to_output_buffer('\n');
-			FL_CLEAR_TO_END_OF_LINE();
+			TClearToEOL(CL_LINE);
 			lprintf("%c) %s", index + 'a', objectname[iven[index]]);
 			if (iven[index] == OPOTION && potionname[ivenarg[index]])
 				lprintf("%s", potionname[ivenarg[index]]);
@@ -138,7 +139,7 @@ fl_display_inventory(int index, char select_allowed) {
 			break;
 		default:
 			fl_output_single_byte_to_output_buffer('\n');
-			FL_CLEAR_TO_END_OF_LINE();
+			TClearToEOL(CL_LINE);
 			lprintf("%c) %s", index + 'a', objectname[iven[index]]);
 			if (ivenarg[index] > 0)
 				lprintf(" +%d", ivenarg[index]);

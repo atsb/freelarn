@@ -20,6 +20,7 @@
 #include "FLTermCapIO.hpp"
 #include "FLHelp.hpp"
 #include "FLSystemDependant.hpp"
+#include "../templates/FLTTerm.hpp"
 
 /*  I coded a nice line-reader for this.  Unfortunately it's very hard to get a good
     cursor and text position when reading a file from inside a curses program.
@@ -29,7 +30,7 @@
 
 int
 display_help_text(void) {
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("Help File for Larn\n");
 	lprintf("b  move southwest          B  run southwest            A  desecrate an altar\n");
 	lprintf("c  cast a spell            C  close a door             Z  teleport yourself	\n");
@@ -53,7 +54,7 @@ display_help_text(void) {
 	lprintf("w  wield a weapon          W  wear armor 									\n");
 	lprintf("y  move northwest          Y  run northwest            ^L redraw the screen	\n");
 	retcont();
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("Special Notes\n");
 	lprintf("When dropping gold, if you type '*' as your amount, all your gold gets dropped.\n");
 	lprintf("In general, typing in '*' means all of what your interested in.  This is true\n");
@@ -71,7 +72,7 @@ display_help_text(void) {
 	lprintf("5 key on the Keypad is the same as \"stay here\", which really means to\n");
 	lprintf("skip your turn.");
 	retcont();
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("Explanation of the Larn scoreboard facility\n");
 	lprintf("Larn supports TWO scoreboards, one for winners, and one for deceased\n");
 	lprintf("characters.  Each player (by the name entered when you start the game)\n");

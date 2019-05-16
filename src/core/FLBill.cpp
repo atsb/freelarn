@@ -18,6 +18,7 @@
 #include "../config/FLIncludeData.hpp"
 #include "../templates/FLTMath.hpp"
 #include "FLTermCapIO.hpp"
+#include "../templates/FLTTerm.hpp"
 
 static int junk_mail1(int);
 static int junk_mail2(void);
@@ -35,7 +36,7 @@ static int junk_mail4(void);
 static int
 junk_mail1(int gold_count) {
 	enable_scroll = 0;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("From:");
 	fl_display_message("the LRS");
 	fl_invert_color_space("\nSubject:");
@@ -54,7 +55,7 @@ junk_mail1(int gold_count) {
 static int
 junk_mail2(void) {
 	enable_scroll = 0;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("From:");
 	fl_display_message("Monk Chilfred\n");
 	fl_invert_color_space("\nSubject:");
@@ -73,7 +74,7 @@ junk_mail2(void) {
 static int
 junk_mail3(void) {
 	enable_scroll = 0;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("From:");
 	fl_display_message("Count Englewond of Chi\n");
 	fl_invert_color_space("\nSubject:");
@@ -89,7 +90,7 @@ junk_mail3(void) {
 static int
 junk_mail4(void) {
 	enable_scroll = 0;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_invert_color_space("From:");
 	fl_display_message("Hakaz the Elderly\n");
 	fl_invert_color_space("\nSubject:");

@@ -95,7 +95,7 @@ fl_change_char_level(int how) {
 				} else {
 					fl_output_single_byte_to_output_buffer('!');
 				}
-				FL_LOSEMAXHEALTH((int) j);
+				TLowerMaxHealth((int) j);
 			} else {
 				lprintf("You gain %d hit point", (int) j);
 				if (j > 1) {
@@ -103,7 +103,7 @@ fl_change_char_level(int how) {
 				} else {
 					fl_output_single_byte_to_output_buffer('!');
 				}
-				FL_RAISEMAXHEALTH((int)j);
+				TRaiseMaxHealth((int)j);
 			}
 			bottomline();
 			break;
@@ -111,7 +111,7 @@ fl_change_char_level(int how) {
 			j = TRnd(level + 1);
 			if (how > 0) {
 				lprintf("You just gained %d spell", (int) j);
-				FL_RAISEMAXHEALTH((int)j);
+				TRaiseMaxSpells((int)j);
 				if (j > 1) {
 					fl_display_message("s!");
 				} else {
@@ -119,7 +119,7 @@ fl_change_char_level(int how) {
 				}
 			} else {
 				lprintf("You just lost %d spell", (int) j);
-				FL_LOSEMAXSPELLS((int) j);
+				TLowerMaxSpells((int) j);
 				if (j > 1) {
 					fl_display_message("s!");
 				} else {

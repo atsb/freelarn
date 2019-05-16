@@ -22,6 +22,7 @@
 #include "FLScores.hpp"
 #include "FLStore.hpp"
 #include "FLSystemDependant.hpp"
+#include "../templates/FLTTerm.hpp"
 
 static void fl_dnd_item_list(int i);
 static void fl_show_trading_store_inventory(void);
@@ -156,7 +157,7 @@ FLStore::DNDStore(void) {
 	int i, inventory_limit;
 	inventory_limit = 0;
 	dnditm = 0;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_display_message("Welcome to the Larn Thrift Shoppe. We stock many items explorers find useful\n");
 	fl_display_message("in their adventures. Feel free to browse to your hearts content.\n");
 	if (outstanding_taxes > 0) {
@@ -186,7 +187,7 @@ FLStore::DNDStore(void) {
 		fl_display_message("You have ");
 		lprintf("%ld ", cdesc[FL_GOLD]);
 		lprintf("gold pieces");
-		FL_CLEAR_TO_END_OF_LINE();
+		TClearToEOL(CL_LINE);
 		fl_clear_screen_from_to_end_of_display(1, 20);
 		fl_display_message("\nEnter your transaction [");
 		fl_invert_color_space("space");
@@ -199,7 +200,7 @@ FLStore::DNDStore(void) {
 			i = ttgetch();
 		}
 		if (i == MAXINVEN) {
-			fl_clear_and_reset_screen();
+			TClearAndResetScreen(FL_CLEAR);
 			fl_display_message("Welcome to the Larn Thrift Shoppe. We stock many items explorers find useful\n");
 			fl_display_message("in their adventures. Feel free to browse to your hearts content.\n");
 			for (i = dnditm; i < MAXDNDSIZE + dnditm; i++) {
@@ -296,7 +297,7 @@ banktitle(const char *str) {
 	int gemvalue[26];
 	int amt;
 	int i, k, gems_sold = 0;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	fl_display_message(str);
 	if (outstanding_taxes > 0) {
 		fl_display_message
@@ -380,7 +381,7 @@ banktitle(const char *str) {
 		switch (i) {
 			case 'd':
 				fl_display_message("deposit\n");
-				FL_CLEAR_TO_END_OF_LINE();
+				TClearToEOL(CL_LINE);
 				fl_display_message("How much? ");
 				amt = readnum(cdesc[FL_GOLD]);
 				if (amt > cdesc[FL_GOLD]) {
@@ -555,7 +556,7 @@ void
 FLStore::TradingPost(void) {
 	int i, j, isub, izarg, found;
 	int value;
-	fl_clear_and_reset_screen();
+	TClearAndResetScreen(FL_CLEAR);
 	enable_scroll = 0;
 	dnditm = dndcount = 0;
 	fl_display_message
@@ -589,7 +590,7 @@ FLStore::TradingPost(void) {
 		}
 		for (;;) {		/* inner loop for simpler control */
 			if (i == MAXINVEN) {
-				fl_clear_and_reset_screen();
+				TClearAndResetScreen(FL_CLEAR);
 				enable_scroll = 0;
 				fl_display_message
 				("Welcome to the Larn Trading Post.  We buy items that explorers no longer find\n");
@@ -682,7 +683,7 @@ FLStore::TradingPost(void) {
 				fl_clear_trading_inventory(isub);
 				/*  clear and display functions again so gold is re-calculated
 				    part of feature request from hymie0. ~Gibbon */
-				fl_clear_and_reset_screen();
+				TClearAndResetScreen(FL_CLEAR);
 				enable_scroll = 0;
 				fl_display_message
 				("Welcome to the Larn Trading Post.  We buy items that explorers no longer find\n");
@@ -697,7 +698,7 @@ FLStore::TradingPost(void) {
 				fl_show_trading_store_inventory();
 			} else {
 				/* refresh screen when saying no ~Gibbon */
-				fl_clear_and_reset_screen();
+				TClearAndResetScreen(FL_CLEAR);
 				enable_scroll = 0;
 				fl_display_message
 				("Welcome to the Larn Trading Post.  We buy items that explorers no longer find\n");

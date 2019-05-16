@@ -21,6 +21,7 @@
 #include "../core/FLFuncs.hpp"
 #include "../core/FLTermCapIO.hpp"
 #include "FLBotSubstitution.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using std::cout;
 
@@ -351,7 +352,7 @@ drawscreen(void) {
 	        && d_ymax == FL_MAX_VERTICAL_POSITION) {
 		/* clear the screen */
 		d_flag = 1;
-		fl_clear_and_reset_screen();
+		TClearAndResetScreen(FL_CLEAR);
 	} else {
 		d_flag = 0;
 		fl_termcap_cursor_position(1, 1);
@@ -434,7 +435,7 @@ drawscreen(void) {
 			}
 		}
 	}
-	fl_reset_text_bold();
+	TResetTextBold(ST_END);
 	if (d_flag) {
 		always = 1;
 		botside();
@@ -675,7 +676,7 @@ seemagic(int arg) {
 		fl_termcap_cursor_position(1, 1);
 	} else {
 		enable_scroll = 0;
-		fl_clear_and_reset_screen();
+		TClearAndResetScreen(FL_CLEAR);
 	}
 	lprintf("The magic spells you have discovered thus far:\n");
 	for (i = 0; i < number; i++) {
@@ -766,7 +767,7 @@ seepage(void) {
 		if (fllinecount > 5) {
 			fllinecount = 0;
 			fl_more_info(0);
-			fl_clear_and_reset_screen();
+			TClearAndResetScreen(FL_CLEAR);
 		}
 	}
 }

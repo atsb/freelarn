@@ -25,6 +25,7 @@
 #include "../player/FLHunger.hpp"
 #include "../core/FLFuncs.hpp"
 #include "../core/FLStore.hpp"
+#include "../templates/FLTTerm.hpp"
 
 using std::cout;
 
@@ -82,7 +83,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OPOTION, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				fl_potion(j);
@@ -97,7 +98,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OSCROLL, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				fl_scroll(j);
@@ -125,7 +126,7 @@ fl_look_for_an_object_and_give_options(
 										fl_display_message("\n");
 										fl_a_give_thanks();
 										fl_display_message("\nThe Altar descends into the floor and vanishes before your eyes!");
-										fl_forget_data();
+										TForgetData(0);
 										return;
 									case 'm':
 										fl_a_give_donation();
@@ -152,7 +153,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OBOOK, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				fl_book();
@@ -164,7 +165,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OPRAYERBOOK, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				fl_prayer_book();
@@ -176,7 +177,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OCANDLE, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 			fl_candle();
@@ -188,7 +189,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OCOOKIE, 0) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				fl_fortune_cookie();
@@ -287,7 +288,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(OCHEST, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				fl_display_message("\nDo you (t) take it, (o) try to open it");
@@ -547,7 +548,7 @@ fl_look_for_an_object_and_give_options(
 			}
 			if (do_pickup)
 				if (take(i, j) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 			if (do_action) {
 				char tempc = 0;
@@ -559,7 +560,7 @@ fl_look_for_an_object_and_give_options(
 				if (tempc == 't') {
 					fl_display_message("take");
 					if (take(i, j) == 0) {
-						fl_forget_data();
+						TForgetData(0);
 					}
 					return;
 				}
@@ -662,13 +663,13 @@ fl_potion(int pot) {
 				return;
 			case 'd':
 				fl_display_message("drink\n");
-				fl_forget_data();		/* destroy potion  */
+				TForgetData(0);		/* destroy potion  */
 				fl_drink_potion(pot, 1);
 				return;
 			case 't':
 				fl_display_message("take\n");
 				if (take(OPOTION, pot) == 0) {
-					fl_forget_data();
+					TForgetData(0);
 				}
 				return;
 		};
@@ -712,7 +713,7 @@ fl_drink_potion(int pot, int set_known) {
 		case 1:
 			fl_display_message("\nYou feel better");
 			if (cdesc[FL_HP] == cdesc[FL_HPMAX]) {
-				FL_RAISEMAXHEALTH(1);
+				TRaiseMaxHealth(1);
 			} else if ((cdesc[FL_HP] += TRnd(20) + 20 + cdesc[FL_LEVEL]) >
 			           cdesc[FL_HPMAX]) {
 				cdesc[FL_HP] = cdesc[FL_HPMAX];
@@ -721,7 +722,7 @@ fl_drink_potion(int pot, int set_known) {
 		case 2:
 			fl_display_message("\nSuddenly, you feel much more skillful!");
 			CoreFuncs.IncreasePlayerLevel();
-			FL_RAISEMAXHEALTH(1);
+			TRaiseMaxHealth(1);
 			return;
 		case 3:
 			fl_display_message("\nYou feel strange for a moment");
@@ -929,7 +930,7 @@ fl_scroll(int typ) {
 					break;
 				}
 				fl_display_message("read");
-				fl_forget_data();
+				TForgetData(0);
 				if (typ == 2 || typ == 15) {
 					fl_show_designated_cell_only(player_horizontal_position, player_vertical_position);
 					fl_termcap_cursor_position(1, 24);
@@ -939,7 +940,7 @@ fl_scroll(int typ) {
 			case 't':
 				fl_display_message("take");
 				if (take(OSCROLL, typ) == 0) {
-					fl_forget_data();   /* destroy it  */
+					TForgetData(0);   /* destroy it  */
 				}
 				return;
 		};
@@ -1216,12 +1217,12 @@ fl_book(void) {
 				}
 				fl_display_message("read");
 				/* no more book */ fl_read_a_book(object_argument[player_horizontal_position][player_vertical_position]);
-				fl_forget_data();
+				TForgetData(0);
 				return;
 			case 't':
 				fl_display_message("take");
 				if (take(OBOOK, object_argument[player_horizontal_position][player_vertical_position]) == 0) {
-					fl_forget_data();   /* no more book */
+					TForgetData(0);   /* no more book */
 				}
 				return;
 		};
@@ -1240,13 +1241,13 @@ switch (ttgetch()) {
 			fl_display_message("\nYou feel protected by a spiritual power!");
 			cdesc[FL_LIFE_PROTECTION]++;
 			bottomline();
-			fl_forget_data();
+			TForgetData(0);
 			return;
 			case 'w':
 			fl_display_message("\nYour Wisdom has increased by 10!");
 			cdesc[FL_WISDOM] += 10;
 			bottomline();
-			fl_forget_data();
+			TForgetData(0);
 			return;
 			break;
 		};
@@ -1273,12 +1274,12 @@ fl_prayer_book(void) {
 				}
 				fl_display_message("read");
 				/* no more book */ fl_read_a_prayer_book(object_argument[player_horizontal_position][player_vertical_position]);
-				fl_forget_data();
+				TForgetData(0);
 				return;
 			case 't':
 				fl_display_message("take");
 				if (take(OPRAYERBOOK, object_argument[player_horizontal_position][player_vertical_position]) == 0) {
-					fl_forget_data();   /* no more book */
+					TForgetData(0);   /* no more book */
 				}
 				return;
 		};
@@ -1363,12 +1364,12 @@ fl_fortune_cookie(void) {
 				return;
 			case 'e':
 				fl_display_message("eat");
-				fl_forget_data();		/* no more cookie */
+				TForgetData(0);		/* no more cookie */
 				return;
 			case 't':
 				fl_display_message("take");
 				if (take(OCOOKIE, 0) == 0) {
-					fl_forget_data();   /* no more book */
+					TForgetData(0);   /* no more book */
 				}
 				return;
 		};
@@ -1404,12 +1405,12 @@ fl_player_home(void) {
 		if (iven[i] == OPOTION)
 			if (ivenarg[i] == 21) {
 				iven[i] = 0;
-				fl_clear_and_reset_screen();
+				TClearAndResetScreen(FL_CLEAR);
 				lprintf
 				("Congratulations.  You found a potion of cure dianthroritis.\n");
 				lprintf
 				("\nFrankly, No one thought you could do it.  Boy!  Did you surprise them!\n");
-				if (gtime > FL_TOTAL_MOBUL_LIMIT()) {
+				if (gtime > FL_TOTAL_MOBUL_LIMIT) {
 					lprintf
 					("\nThe doctor has the sad duty to inform you that your daughter passed away..");
 					lprintf
@@ -1432,10 +1433,10 @@ fl_player_home(void) {
 				}
 			}
 	for (;;) {
-		fl_clear_and_reset_screen();
+		TClearAndResetScreen(FL_CLEAR);
 		lprintf("Welcome home %s.  Latest word from the doctor is not good.\n",
 		        logname);
-		if (gtime > FL_TOTAL_MOBUL_LIMIT()) {
+		if (gtime > FL_TOTAL_MOBUL_LIMIT) {
 			lprintf
 			("\nThe doctor has the sad duty to inform you that your daughter passed away..\n");
 			lprintf
@@ -1447,7 +1448,7 @@ fl_player_home(void) {
 		("\nThe diagnosis is confirmed as dianthroritis.  He guesses that\n");
 		lprintf
 		("your daughter has only %d mobuls left in this world.  It's up to you,\n",
-		 ((FL_TOTAL_MOBUL_LIMIT() - gtime + 99) / 100));
+		 ((FL_TOTAL_MOBUL_LIMIT - gtime + 99) / 100));
 		lprintf("%s, to find the only hope for your daughter, the very rare\n",
 		        logname);
 		lprintf
@@ -1572,7 +1573,7 @@ fl_open_door(void) {
 		return;
 	}
 	fl_display_message("close");
-	fl_forget_data();
+	TForgetData(0);
 	object_identification[player_horizontal_position][player_vertical_position] = OCLOSEDDOOR;
 	object_argument[player_horizontal_position][player_vertical_position] = 0;
 	player_horizontal_position = lastpx;

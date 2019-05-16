@@ -34,6 +34,7 @@
 #include "player/FLHunger.hpp"
 #include "core/FLNewGame.hpp"
 #include "core/FLFuncs.hpp"
+#include "templates/FLTTerm.hpp"
 
 using std::cout;
 
@@ -99,7 +100,7 @@ int main() {
 	pFile = fopen(savefilename, "r");
 	if (pFile != 0) {	/* restore game if need to */
 		fclose(pFile);
-		fl_clear_and_reset_screen();
+		TClearAndResetScreen(FL_CLEAR);
 		restorflag = 1;
 		hitflag = 1;
 		load.restoregame(savefilename);	/* restore last game    */

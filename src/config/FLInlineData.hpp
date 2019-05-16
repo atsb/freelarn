@@ -15,6 +15,7 @@
 const int HAVESEEN = 1;
 const int KNOWHERE = 2;
 const int KNOWALL = HAVESEEN | KNOWHERE;
+const int FL_TOTAL_MOBUL_LIMIT = 70000;
 
 //Tax rate for the LRS
 const int TAXRATE = 1/20;
@@ -30,51 +31,6 @@ const int T_INIT = 7;
 const int T_END = 8;
 const int CL_DOWN = 14;
 const int FL_CURSOR = 15;
-
-//Inline functions ~Gibbon
-//Destroy object at present location
-extern int object_identification[FL_MAX_HORIZONTAL_POSITION][FL_MAX_VERTICAL_POSITION];
-extern int player_horizontal_position;
-extern int player_vertical_position;
-extern int been_here_before[FL_MAX_HORIZONTAL_POSITION][FL_MAX_VERTICAL_POSITION];
-inline int fl_forget_data(void) {
-	return object_identification[player_horizontal_position][player_vertical_position] = been_here_before[player_horizontal_position][player_vertical_position] = 0;
-}
-
-/* Turn on bold display for the terminal */
-extern char *fl_buffer_pointer;
-inline int fl_set_text_to_bold(void) {
-	return *fl_buffer_pointer++ = ST_START;
-}
-
-/* Turn off bold display for the terminal */
-inline int fl_reset_text_bold(void) {
-	return *fl_buffer_pointer++ = ST_END;
-}
-
-/* Clear the screen and home the cursor */
-inline int fl_clear_and_reset_screen(void) {
-	int regen_bottom = 1;
-	return *fl_buffer_pointer++ = FL_CLEAR, regen_bottom;
-}
-inline int FL_BOLD(void) {
-	const int bold = 3;
-	return bold;
-}
-inline int FL_END_BOLD(void) {
-	const int end_bold = 4;
-	return end_bold;
-}
-inline int FL_TOTAL_MOBUL_LIMIT(void) {
-	const int timelimit = 70000;
-	return timelimit;
-}
-
-extern char *fl_buffer_pointer;
-inline int FL_CLEAR_TO_END_OF_LINE(void) {
-	return *fl_buffer_pointer++ = CL_LINE;
-}
-//End Inline functions
 
 const int FL_MAX_CAVE_OF_LARN_LEVEL = 11;
 const int FL_MAX_TEMPLE_OF_LARN_LEVEL = 3;
@@ -355,23 +311,33 @@ const int IDISTNORM = 17;	/* was 17 - dgk */
 const int IDISTAGGR = 40;	/* was 40 - dgk */
 const int MAX_QUEUE = 100;
 
-//Inline functions for raising and losing health and spells ~Gibbon
+//Templates for raising and losing health and spells,
+//kept here for now as it uses other definitions. ~Gibbon
 extern long cdesc[];
+extern int object_identification[FL_MAX_HORIZONTAL_POSITION][FL_MAX_VERTICAL_POSITION];
+extern int player_horizontal_position;
+extern int player_vertical_position;
+extern int been_here_before[FL_MAX_HORIZONTAL_POSITION][FL_MAX_VERTICAL_POSITION];
 
-inline void FL_RAISEMAXHEALTH(int y) {
-	cdesc[FL_HP] += y;
-	cdesc[FL_HPMAX] += y;
+template<typename T>
+T TRaiseMaxHealth(const T& y) {
+	return cdesc[FL_HP] = cdesc[FL_HPMAX] += y;
 }
-inline void FL_RAISEMAXSPELLS(int y) {
-	cdesc[FL_SPELLS] += y;
-	cdesc[FL_SPELLMAX] += y;
+template<typename T>
+T TRaiseMaxSpells(const T& y) {
+	return cdesc[FL_SPELLS] = cdesc[FL_SPELLMAX] += y;
 }
-inline void FL_LOSEMAXHEALTH(int y) {
-	cdesc[FL_HP] -= y;
-	cdesc[FL_HPMAX] -= y;
+template<typename T>
+T TLowerMaxHealth(const T& y) {
+	return cdesc[FL_HP] = cdesc[FL_HPMAX] -= y;
 }
-inline void FL_LOSEMAXSPELLS(int y) {
-	cdesc[FL_SPELLS] -= y;
-	cdesc[FL_SPELLMAX] -= y;
+template<typename T>
+T TLowerMaxSpells(const T& y) {
+	return cdesc[FL_SPELLS] = cdesc[FL_SPELLMAX] -= y;
 }
-//End Inline functions
+//The call is really TForgetData(0); but in this case the '0' means to set it to 0 to forget it. ~Gibbon
+template<typename T>
+T TForgetData(const T& x) {
+	return object_identification[player_horizontal_position][player_vertical_position]
+			= been_here_before[player_horizontal_position][player_vertical_position] = x;
+}
