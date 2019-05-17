@@ -899,7 +899,7 @@ fl_drink_potion(int pot, int set_known) {
 		case 23:
 			fl_display_message("\nYou feel your vision sharpen");	/* see invisible */
 			cdesc[FL_SEEINVISIBLE] += TRnd(1000) + 400;
-			monstnamelist[INVISIBLESTALKER] = 'I';
+			monstnamelist[INVISIBLEDIWATA] = 'I';
 			return;
 	};
 	bottomline();		/* show new stats      */

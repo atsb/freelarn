@@ -29,6 +29,16 @@ May 2019
 18. Removed [[fallthrough]] but left as a comment to see when
 	statements fall through.
 19. Optimised makefiles to supress fallthrough warning.
+20. Removed D&D monsters and replaced with folklore monsters:
+	Umber Hulk replaced with Unktehi (Lakota folklore),
+	Rust Monster replaced with Ragana (Lithuanian folklore),
+	Gelatinous Cube replaced with Gytrash (English folklore),
+	Invisible Stalker replaced with Invisible Diwata (Philippine folklore).
+21. Changed a few stats on the new monsters to be more like their
+	folklore.
+22. Gytrash has a chance to summon a monster if HP is less than 10.
+23. Fixed a crash where a bad maze was being read. Temporarily
+	reduced mazes to '2' (read from the char).
 
 ~Gibbon
 

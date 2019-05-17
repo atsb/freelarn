@@ -123,11 +123,6 @@ const char *levelname[14] = {
 	"T1", "T2", "T3"
 };
 
-/*  This char array was too short.  MAXOBJECT is defined as 92 and having this
-    as +2 (making it 94) was too short to hold the entire array. +36 fixes this as it
-    is the minimum required to hold all objects. -Gibbon
-*/
-
 int objnamelist[88] = {
 	'.',  //
 	':',  //a holy altar
@@ -236,7 +231,7 @@ int monstnamelist[65] = {
 	'L', //leprechaun
 	'N', //nymph
 	'Q', //quasit
-	'R', //rust monster
+	'R', //ragana
 	'Z', //zombie
 	'a', //assassin bug
 	'b', //bugbear
@@ -247,7 +242,7 @@ int monstnamelist[65] = {
 	'Y', //yeti
 	'd', //white dragon
 	'e', //elf
-	'g', //gelatinous cube
+	'g', //gytrash
 	'm', //metamorph
 	'v', //vortex
 	'z', //ziller
@@ -259,12 +254,12 @@ int monstnamelist[65] = {
 	'r', //rothe
 	'X', //xorn
 	'V', //vampire
-	'I', //invisible stalker
+	'I', //invisible diwata
 	'p', //poltergeist
 	'q', //disenchantress
 	's', //shambling mound
 	'y', //yellow mold
-	'U', //umber hulk
+	'U', //unktehi
 	'k', //gnome king
 	'M', //mimic
 	'w', //water lord
@@ -362,7 +357,7 @@ struct monst monster[] = {
 	{"leprechaun", 3, 3, 0, 8, 0, 0, 3, 1500, 13, 45},
 	{"nymph", 3, 3, 0, 14, 0, 0, 9, 0, 18, 45},
 	{"quasit", 3, 5, 3, 0, 0, 0, 3, 0, 10, 15},
-	{"rust monster", 3, 4, 0, 1, 0, 0, 3, 0, 18, 25},
+	{"ragana", 3, 5, 0, 1, 0, 2, 4, 0, 17, 25},
 	{"zombie", 3, 12, 2, 0, 0, 0, 3, 0, 6, 7},
 
 	{"assassin bug", 4, 9, 3, 0, 0, 0, 3, 0, 20, 15},
@@ -378,7 +373,7 @@ struct monst monster[] = {
 	{"yeti", 5, 6, 4, 0, 0, 0, 5, 50, 35, 100},
 	{"white dragon", 5, 2, 4, 5, 0, 0, 16, 500, 55, 1000},
 	{"elf", 5, 8, 1, 0, 0, 0, 15, 50, 22, 35},
-	{"gelatinous cube", 5, 9, 1, 0, 0, 0, 3, 0, 22, 45},
+	{"gytrash", 6, 10, 1, 2, 3, 0, 3, 0, 20, 45},
 
 	{"metamorph", 6, 7, 3, 0, 0, 0, 3, 0, 30, 40},
 	{"vortex", 6, 4, 3, 0, 0, 0, 3, 0, 30, 55},
@@ -395,13 +390,13 @@ struct monst monster[] = {
 	{"rothe", 7, 15, 5, 0, 0, 0, 3, 100, 50, 250},
 	{"xorn", 7, 0, 6, 0, 0, 0, 13, 0, 60, 300},
 	{"vampire", 7, 3, 4, 6, 0, 0, 17, 0, 50, 1000},
-	{"invisible stalker", 7, 3, 6, 0, 0, 0, 5, 0, 50, 350},
+	{"invisible diwata", 7, 4, 5, 0, 0, 0, 5, 0, 50, 350},
 
 	{"poltergeist", 8, 1, 4, 0, 0, 0, 3, 0, 50, 450},
 	{"disenchantress", 8, 3, 0, 9, 0, 0, 3, 0, 50, 500},
 	{"shambling mound", 8, 2, 5, 0, 0, 0, 6, 0, 45, 400},
 	{"yellow mold", 8, 12, 4, 0, 0, 0, 3, 0, 35, 250},
-	{"umber hulk", 8, 3, 7, 11, 0, 0, 14, 0, 65, 600},
+	{"unktehi", 8, 4, 6, 11, 0, 5, 12, 0, 65, 600},
 
 	/*  NAME            LV  FL_AC  DAM ATT DEF GEN INT FL_GOLD    HP  EXP
 	    ----------------------------------------------------------------- */
@@ -678,7 +673,7 @@ int spelweird[FL_MAX_MONSTERS_IN_GAME + 8][FL_MAX_SPELLS_IN_GAME] = {
 		0, 0
 	},
 
-	/*   rust monster */ {
+	/*   ragana */ {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0
@@ -735,7 +730,7 @@ int spelweird[FL_MAX_MONSTERS_IN_GAME + 8][FL_MAX_SPELLS_IN_GAME] = {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0
 	},
-	/*gelatinous cube */ {
+	/*gytrash */ {
 		0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0
@@ -823,7 +818,7 @@ int spelweird[FL_MAX_MONSTERS_IN_GAME + 8][FL_MAX_SPELLS_IN_GAME] = {
 		0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0
 	},
-	/*     umber hulk */ {
+	/*     unktehi */ {
 		0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0

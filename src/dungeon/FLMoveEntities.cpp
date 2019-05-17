@@ -309,7 +309,7 @@ move_scared(int i, int j) {
 		case HOBGOBLIN:
 		case METAMORPH:
 		case XVART:
-		case INVISIBLESTALKER:
+		case INVISIBLEDIWATA:
 		case ICELIZARD:
 			if ((gtime & 1) == 1) {
 				return;
@@ -355,7 +355,7 @@ move_smart(int i, int j) {
 		case HOBGOBLIN:
 		case METAMORPH:
 		case XVART:
-		case INVISIBLESTALKER:
+		case INVISIBLEDIWATA:
 		case ICELIZARD:
 			if ((gtime & 1) == 1) {
 				return;
@@ -410,7 +410,7 @@ move_dumb(int i, int j) {
 		case HOBGOBLIN:
 		case METAMORPH:
 		case XVART:
-		case INVISIBLESTALKER:
+		case INVISIBLEDIWATA:
 		case ICELIZARD:
 			if ((gtime & 1) == 1) {
 				return;

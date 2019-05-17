@@ -159,7 +159,7 @@ fl_regen_hp_and_spells(void) {
 		}
 	if (larn_cdesc_id[FL_SEEINVISIBLE])
 		if (--larn_cdesc_id[FL_SEEINVISIBLE] <= 0) {
-			monstnamelist[INVISIBLESTALKER] = floorc;
+			monstnamelist[INVISIBLEDIWATA] = floorc;
 			if (!larn_cdesc_id[FL_BLINDCOUNT]) {
 				fl_termcap_cursor_position(1, 24);
 				fl_display_message("\nYour vision returns to normal");

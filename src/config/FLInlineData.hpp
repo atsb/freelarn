@@ -55,7 +55,7 @@ const int FL_STRING_BUFFER_SIZE = 256;
 /* maximum # monsters in the dungeon */
 const int FL_MAX_MONSTERS_IN_GAME = 56;
 /* Maximum number of mazes */
-const int FL_MAX_MAZES_IN_GAME = 24;
+const int FL_MAX_MAZES_IN_GAME = 2;
 
 /*  defines for the monsters as objects  */
 const int BAT = 1;
@@ -73,7 +73,7 @@ const int EYE = 12;
 const int LEPRECHAUN = 13;
 const int NYMPH = 14;
 const int QUASIT = 15;
-const int RUSTMONSTER = 16;
+const int RAGANA = 16;
 const int ZOMBIE = 17;
 const int ASSASSINBUG = 18;
 const int BUGBEAR = 19;
@@ -84,7 +84,7 @@ const int TROLL = 23;
 const int YETI = 24;
 const int WHITEDRAGON = 25;
 const int ELF = 26;
-const int CUBE = 27;
+const int GYTRASH = 27;
 const int METAMORPH = 28;
 const int VORTEX = 29;
 const int ZILLER = 30;
@@ -96,12 +96,12 @@ const int OSEQUIP = 35;
 const int ROTHE = 36;
 const int XORN = 37;
 const int VAMPIRE = 38;
-const int INVISIBLESTALKER = 39;
+const int INVISIBLEDIWATA = 39;
 const int POLTERGEIST = 40;
 const int DISENCHANTRESS = 41;
 const int SHAMBLINGMOUND = 42;
 const int YELLOWMOLD = 43;
-const int UMBERHULK = 44;
+const int UNKTEHI = 44;
 const int GNOMEKING = 45;
 const int MIMIC = 46;
 const int WATERLORD = 47;

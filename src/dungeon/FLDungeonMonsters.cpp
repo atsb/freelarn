@@ -223,8 +223,7 @@ fl_hit_a_monster(int x, int y) {
 	fl_display_message(" the ");
 	fl_display_message(lastmonst);
 	if (flag)			/* if the monster was hit */
-		if ((monst == RUSTMONSTER) || (monst == DISENCHANTRESS)
-		        || (monst == CUBE))
+		if ((monst == RAGANA) || (monst == DISENCHANTRESS))
 			if (cdesc[FL_WIELD] >= 0)
 				if (ivenarg[cdesc[FL_WIELD]] > -10) {
 					lprintf("\nYour weapon is dulled by the %s", lastmonst);
@@ -252,6 +251,13 @@ fl_hit_a_monster(int x, int y) {
 			monster_identification[x][y] = BAT;
 			been_here_before[x][y] = 0;
 		}
+	if (monst == GYTRASH)
+		if (monster_hit_points[x][y] < 10) {
+			if ((TRnd(45) < 5)) {
+				lprintf("\nThe %s lets out a huge howl and draws in a monster!", lastmonst);
+				fl_create_a_monster(fl_create_monster(level + 1));
+		}
+	}
 }
 
 int
@@ -590,7 +596,7 @@ fl_new_rand_object(int lev, int *i) {
     atckno   monster     effect
     ---------------------------------------------------
     0   none
-    1   rust monster    eat armor
+    1   ragana    		destroys armor
     2   hell hound      breathe light fire
     3   dragon          breathe fire
     4   giant centipede weakening sing
@@ -600,7 +606,7 @@ fl_new_rand_object(int lev, int *i) {
     8   leprechaun      steal gold
     9   disenchantress  disenchant weapon or armor
     10  ice lizard      hits with barbed tail
-    11  umber hulk      confusion
+    11  unktehi         confusion
     12  spirit naga     cast spells taken from special attacks
     13  platinum dragon psionics
     14  nymph           steal objects
@@ -608,7 +614,7 @@ fl_new_rand_object(int lev, int *i) {
     16  osequip         bite
 
     char rustarm[ARMORTYPES][2];
-    special array for maximum rust damage to armor from rustmonster
+    special array for maximum damage to armor from ragana
     format is: { armor type , minimum attribute
 */
 
@@ -620,7 +626,6 @@ static int rustarm[ARMORTYPES][2] = {
 	{OSPLINT, -6},
 	{OPLATE, -8},
 	{OPLATEARMOR, -9}
-
 };
 
 
@@ -637,7 +642,7 @@ spattack(int x, int xx, int yy) {
 	}
 	fl_verify_bound_coordinates(&xx, &yy);
 	switch (x) {
-		case 1:			/* rust your armor, j=1 when rusting has occurred */
+		case 1:			/* destroys your armor, j=1 when destruction has occurred */
 			m = k = cdesc[FL_WEAR];
 			i = cdesc[FL_SHIELD];
 			if (i != -1) {
@@ -659,14 +664,14 @@ spattack(int x, int xx, int yy) {
 						break;
 					}
 			}
-			if (j == 0)		/* if rusting did not occur */
+			if (j == 0)
 				switch (m) {
 					case OLEATHER:
-						p = "\nThe %s hit you -- Your lucky you have leather on";
+						p = "\nThe %s hit you -- Your leather armor absorbs the effects!";
 						break;
 					case OSSPLATE:
 						p =
-						    "\nThe %s hit you -- Your fortunate to have stainless steel armor!";
+						    "\nThe %s hit you -- Your stainless steel armor is strong!";
 						break;
 				} else {
 				p = "\nThe %s hit you -- your armor feels weaker";
@@ -763,7 +768,7 @@ spattack(int x, int xx, int yy) {
 			}
 			break;
 		case 10:
-			p = "\nThe %s hit you with his barbed tail";
+			p = "\nThe %s hit you with its tail";
 			i = TRnd(25) - cdesc[FL_AC];
 			if (p) {
 				lprintf(p, lastmonst);
