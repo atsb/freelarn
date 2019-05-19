@@ -422,7 +422,7 @@ fl_look_for_an_object_and_give_options(
 			object_identification[player_horizontal_position][player_vertical_position] = OTELEPORTER;
 			been_here_before[player_horizontal_position][player_vertical_position] = KNOWALL;
 			/* fall through to OTELEPORTER case below!!! */
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case OTELEPORTER:
 				cdesc[FL_TELEPORT_FLAG] = 1;
 				fl_display_message("\n\nYou have been teleported!");
@@ -437,7 +437,7 @@ fl_look_for_an_object_and_give_options(
 			object_identification[player_horizontal_position][player_vertical_position] = OTRAPARROW;
 			been_here_before[player_horizontal_position][player_vertical_position] = 0;
 			/* fall through to OTRAPARROW case below!!! */
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case OTRAPARROW:
 			fl_display_message("\nYou are hit by an arrow");
 			lastnum = 259;
@@ -451,7 +451,7 @@ fl_look_for_an_object_and_give_options(
 			object_identification[player_horizontal_position][player_vertical_position] = ODARTRAP;
 			been_here_before[player_horizontal_position][player_vertical_position] = 0;
 			/* fall through to ODARTTRAP case below!!! */
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case ODARTRAP:
 			fl_display_message("\nYou are hit by a dart");
 			lastnum = 260;
@@ -468,7 +468,7 @@ fl_look_for_an_object_and_give_options(
 			object_identification[player_horizontal_position][player_vertical_position] = OTRAPDOOR;
 			been_here_before[player_horizontal_position][player_vertical_position] = KNOWALL;
 			/* fall through to OTRAPDOOR case below!!! */
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case OTRAPDOOR:
 			lastnum = 272;		/* a trap door */
 			if ((level == FL_MAX_CAVE_OF_LARN_LEVEL - 1)

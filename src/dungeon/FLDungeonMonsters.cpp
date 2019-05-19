@@ -677,17 +677,17 @@ spattack(int x, int xx, int yy) {
 				p = "\nThe %s hit you -- your armor feels weaker";
 			}
 			break;
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case 2:
 			i = TRnd(15) + 8 - cdesc[FL_AC];
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case 3:
 			i = TRnd(20) + 25 - cdesc[FL_AC];
 			p = "\nThe %s breathes fire at you!";
 			if (cdesc[FL_FIRERESISTANCE]) {
 				p = "\nThe %s's flame doesn't phase you!";
 			}
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case 4:
 			if (cdesc[FL_STRENGTH] > 3) {
 				p = "\nThe %s stung you!  You feel weaker";
@@ -812,10 +812,10 @@ spattack(int x, int xx, int yy) {
 			disappear(xx, yy);
 			bottomline();
 			return (1);
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case 15:
 			i = TRnd(10) + 5 - cdesc[FL_AC];
-			__attribute__((fallthrough));
+			//__attribute__((fallthrough));
 		case 16:
 			i = TRnd(15) + 10 - cdesc[FL_AC];
 			p = "\nThe %s bit you!";
