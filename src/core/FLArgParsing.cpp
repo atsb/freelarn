@@ -30,7 +30,7 @@
 #include "../templates/FLTTerm.hpp"
 
 extern char viewflag;
-const char* FL_BUILD_VERSION = "CENTAUR";
+const char* FL_BUILD_VERSION = "SPIRIT NAGA";
 static const char* FL_APACHE2_NOTICE = "FreeLarn is Free Software distributed under the Apache 2.0 License";
 bool FL_WIZARD_MODE_ENABLED = false;
 extern int (*get_final_char_keyboard)(void);
