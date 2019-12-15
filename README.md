@@ -7,7 +7,7 @@ Compilation should be without a single warning.  I treat all warnings as errors 
 # History #
 FreeLarn is a direct descendent of the original Larn, that has been mostly (approx 91%) rewritten into C++11 with many additions and features that many now consider a variant.
 
-In 2015 I took the 12.4 Alpha release, fixed it and release it.  Later on I rebased my changes onto 12.4.4.  Years went by and change after change happened.  I dislike the idea of just because something is old, don't change it, Larn will carry on being developed, not just maintained.
+In 2015 I took the 12.4 Alpha release, fixed it and released it.  Later on I rebased my changes onto 12.4.4.  Years went by and change after change happened.  I dislike the idea of just because something is old, don't change it, Larn will carry on being developed, not just maintained.
 
 Initially, development stopped in March 2018 due to the negativity expressed by some people about my changes.  I genuinely missed working on it and enjoy playing it, so I picked it back up.
 
