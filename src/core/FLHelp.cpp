@@ -34,7 +34,7 @@ display_help_text(void) {
 	fl_invert_color_space("Help File for Larn\n");
 	lprintf("b  move southwest          B  run southwest            A  desecrate an altar\n");
 	lprintf("c  cast a spell            C  close a door             Z  teleport yourself	\n");
-	lprintf("d  drop an object            D  drink at a fountain      <  go up stairs or	\n");
+	lprintf("d  drop an object          D  drink at a fountain      <  go up stairs or	\n");
 	lprintf("e  eat something           E  enter a store, dungeon      volcanic shaft	\n");
 	lprintf("g  get present pack weight                             >  go down stairs or	\n");
 	lprintf("h  move left               H  run left                    volcanic shaft	\n");
