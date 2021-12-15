@@ -30,7 +30,7 @@
 #include "../templates/FLTTerm.hpp"
 
 extern char viewflag;
-const char* FL_BUILD_VERSION = "GYTRASH";
+const char* FL_BUILD_VERSION = "GNOME";
 static const char* FL_APACHE2_NOTICE = "FreeLarn is Free Software distributed under the Apache 2.0 License";
 bool FL_WIZARD_MODE_ENABLED = false;
 extern int (*get_final_char_keyboard)(void);
@@ -44,30 +44,22 @@ parse(void) {
 	for (;;) {
 		k = yylex();
 		switch (k) {	/*  get the token from the input and switch on it   */
-			case 'h':
-				moveplayer(4);
-				return;		/*  west        */
-			case 'l':
-				moveplayer(2);
-				return;		/*  east        */
-			case 'j':
-				moveplayer(1);
-				return;		/*  south       */
-			case 'k':
-				moveplayer(3);
-				return;		/*  north       */
-			case 'u':
-				moveplayer(5);
-				return;		/*  northeast   */
-			case 'y':
-				moveplayer(6);
-				return;		/*  northwest   */
-			case 'n':
-				moveplayer(7);
-				return;		/*  southeast   */
-			case 'b':
-				moveplayer(8);
-				return;		/*  southwest   */
+		case 'h':   moveplayer(4);  return;     /*  west        */
+		case 'H':   run(4);         return;     /*  west        */
+		case 'l':   moveplayer(2);  return;     /*  east        */
+		case 'L':   run(2);         return;     /*  east        */
+		case 'j':   moveplayer(1);  return;     /*  south       */
+		case 'J':   run(1);         return;     /*  south       */
+		case 'k':   moveplayer(3);  return;     /*  north       */
+		case 'K':   run(3);         return;     /*  north       */
+		case 'u':   moveplayer(5);  return;     /*  northeast   */
+		case 'U':   run(5);         return;     /*  northeast   */
+		case 'y':   moveplayer(6);  return;     /*  northwest   */
+		case 'Y':   run(6);         return;     /*  northwest   */
+		case 'n':   moveplayer(7);  return;     /*  southeast   */
+		case 'N':   run(7);         return;     /*  southeast   */
+		case 'b':   moveplayer(8);  return;     /*  southwest   */
+		case 'B':   run(8);         return;     /*  southwest   */
 			case '.':		/*  stay here       */
 				if (y_larn_rep) {
 					viewflag = 1;
@@ -508,6 +500,47 @@ parse(void) {
 					return;
 				}
 		};
+	}
+}
+
+void
+run(int dir)
+{
+	int i;
+
+	i = 1;
+
+	while (i)
+	{
+
+		i = moveplayer(dir);
+
+		if (i > 0)
+		{
+
+			if (cdesc[FL_HASTEMONST])
+			{
+
+				fl_move_a_monster();
+			}
+
+			fl_move_a_monster();
+			random_monster_creation = 120 - (level << 2);
+			fl_regen_hp_and_spells();
+		}
+
+		if (hitflag)
+		{
+
+			i = 0;
+		}
+
+		if (i != 0)
+		{
+
+			showcell(player_horizontal_position, player_vertical_position);
+		}
+		gtime++;
 	}
 }
 

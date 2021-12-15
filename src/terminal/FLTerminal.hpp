@@ -29,4 +29,5 @@ void showcell(int, int);
 void fl_show_designated_cell_only(int, int);
 void showplayer(void);
 int moveplayer(int);
+void run(int dir);
 void seemagic(int);
