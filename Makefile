@@ -8,7 +8,7 @@ LIBS = -lncurses
 
 $(EXEC): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(EXEC) $(LIBS)
-	mv $(EXEC) ../bin/
+	mv $(EXEC) bin/
 
 %.o: %.cpp
 	$(CC) -c $(CC_FLAGS) $< -o $@
