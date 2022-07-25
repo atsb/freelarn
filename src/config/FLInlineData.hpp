@@ -303,6 +303,7 @@ const int OGHANISTATUE = 86;
 const int OFIRETUNIC = 87;
 const int OWOODENPRAYERBEADS = 88;
 
+
 const int ARMORTYPES = 6;
 
 /* maximum number of spheres fl_move_spheres_of_annihilation can handle */

@@ -211,8 +211,8 @@ int objnamelist[89] = {
 	'?', // A Prayer Book
 	'|', // A Candle
 	';', //Silver Ghani Statue
-	'@', //Wooden Prayer Beads
-	'[' // A Fire Tunic
+	'[', // A Fire Tunic
+	'@' //Wooden Prayer Beads
 };
 
 int monstnamelist[66] = {
@@ -324,10 +324,9 @@ const char *objectname[] = {
 	"a Teleport Trap", "a Massive Throne",
 	"a Sphere of Annihilation", "a Handsome Jewel Encrusted Throne",
 	"the Larn Revenue Service", "a Fortune Cookie", "a Prayer Book",
-	"a Candle", "a Silver Ghani Statue","A Fire Tunic", "", "", "", "", "", "",
+	"a Candle", "a Silver Ghani Statue","A Fire Tunic", "Wooden Prayer Beads", "", "", "", "", "",
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
 };
-
 /*
     for the monster data
 
