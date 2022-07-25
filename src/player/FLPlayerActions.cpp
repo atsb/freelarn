@@ -452,6 +452,20 @@ fl_a_give_thanks(void) {
 			iven[i] = 0;
 			TForgetData(0);
 		}
+		/*
+		    If the player is holding the Wooden Prayer Beads, when praying at an altar,
+		    they will get some goodies.
+
+		    ~Gibbon
+		*/
+		else if (iven[i] == OWOODENPRAYERBEADS) {
+			fl_display_message("You clutch the Prayer Beads tightly and mutter a short prayer to your ancestors..");
+			fl_display_message("\nWe are with you.\nBehold your increased strength!");
+			cdesc[FL_STRENGTH] += 10;
+			//Then we remove the prayer beads from the inventory.  If the user has more than 1 all will be removed. ~Gibbon
+			iven[i] = 0;
+			TForgetData(0);
+		}
 	return;
 }
 

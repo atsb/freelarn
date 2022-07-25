@@ -301,6 +301,7 @@ const int OPRAYERBOOK = 84;
 const int OCANDLE = 85;
 const int OGHANISTATUE = 86;
 const int OFIRETUNIC = 87;
+const int OWOODENPRAYERBEADS = 88;
 
 const int ARMORTYPES = 6;
 

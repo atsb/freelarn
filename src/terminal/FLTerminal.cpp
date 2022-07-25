@@ -30,7 +30,10 @@ ansiterm_clean_up(void) {
 	nocbreak();
 	nl();
 	echo();
+#ifndef WINDOWS
 	endwin();
+#endif
+
 }
 
 

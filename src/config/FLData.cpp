@@ -123,7 +123,7 @@ const char *levelname[14] = {
 	"T1", "T2", "T3"
 };
 
-int objnamelist[88] = {
+int objnamelist[89] = {
 	'.',  //
 	':',  //a holy altar
 	'\\', //a handsome jewel encrusted throne
@@ -211,6 +211,7 @@ int objnamelist[88] = {
 	'?', // A Prayer Book
 	'|', // A Candle
 	';', //Silver Ghani Statue
+	'@', //Wooden Prayer Beads
 	'[' // A Fire Tunic
 };
 
