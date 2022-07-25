@@ -111,7 +111,7 @@ extern int prayed;
 extern char scrollname[MAXSCROLL + 1][MAXSCROLLNAME];
 extern char potionname[MAXPOTION + 1][MAXPOTIONNAME];
 extern const char *objectname[];
-extern int spelweird[FL_MAX_MONSTERS_IN_GAME + 8][FL_MAX_SPELLS_IN_GAME];
+extern int spelweird[FL_MAX_MONSTERS_IN_GAME + 9][FL_MAX_SPELLS_IN_GAME];
 extern int random_monster_creation;
 extern int dropflag;
 extern int save_mode;

@@ -215,7 +215,7 @@ int objnamelist[89] = {
 	'[' // A Fire Tunic
 };
 
-int monstnamelist[65] = {
+int monstnamelist[66] = {
 	'.', //
 	'B', //bat
 	'G', //gnome
@@ -280,6 +280,7 @@ int monstnamelist[65] = {
 	'.', //type V demon lord
 	'.', //type VI demon lord
 	'.', //type VII demon lord
+	'.', //type VIII demon elder lord
 	'.'  //demon prince
 };
 
@@ -423,6 +424,7 @@ struct monst monster[] = {
 	{"type V demon lord", 16, -40, 22, 0, 0, 0, 24, 0, 220, 150000},
 	{"type VI demon lord", 17, -45, 24, 0, 0, 0, 25, 0, 240, 175000},
 	{"type VII demon lord", 18, -70, 27, 6, 0, 0, 26, 0, 260, 200000},
+	{"type VIII demon elder lord", 20, -90, 27, 8, 0, 0, 24, 0, 300, 210000},
 	{"demon prince", 25, -127, 30, 6, 0, 0, 28, 0, 345, 300000}
 
 	/*  NAME                LV  FL_AC  DAM ATT DEF GEN INT FL_GOLD    HP  EXP
@@ -590,7 +592,7 @@ const char *speldescript[] = {
 	""
 };
 
-int spelweird[FL_MAX_MONSTERS_IN_GAME + 8][FL_MAX_SPELLS_IN_GAME] = {
+int spelweird[FL_MAX_MONSTERS_IN_GAME + 9][FL_MAX_SPELLS_IN_GAME] = {
 	/*                      p m d s c s    w s e h c c p i    b c p c h c v    d l d g f f    s h s t m    s g s w a p */
 	/*                      r l e l h s    e t n e b r h n    a l l a a k p    r i r l l g    c l t e f    p e u t l e */
 	/*                      o e x e m p    b r l l l e a v    l d y n s l r    y t l o o r    a d p l i    h n m w t r */
@@ -926,12 +928,16 @@ int spelweird[FL_MAX_MONSTERS_IN_GAME + 8][FL_MAX_SPELLS_IN_GAME] = {
 		0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 9, 0, 0, 0,
 		0, 0
 	},
+	/*     demon elder lord */ {
+		0, 7, 0, 4, 3, 4, 1, 0, 0, 0, 0, 0, 18, 5, 0, 0, 4, 0,
+		0, 4, 1, 4, 0, 0, 0, 4, 4, 2, 0, 0, 2, 0, 9, 0, 0, 0,
+		0, 0
+	},
 	/*   demon prince */ {
 		0, 7, 0, 4, 3, 9, 1, 0, 0, 0, 0, 0, 14, 5, 0, 0, 4, 0,
 		0, 4, 0, 4, 0, 0, 0, 4, 4, 4, 0, 0, 0, 4, 9, 0, 0, 0,
 		0, 0
 	}
-
 };
 
 const char *spelmes[] = { "",
